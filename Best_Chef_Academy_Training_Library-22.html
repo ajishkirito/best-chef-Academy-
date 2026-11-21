@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b100d"><meta name="description" content="Best Chef Academy — learn cooking skills, explore recipes and build culinary confidence."><meta name="color-scheme" content="dark">
+<title>Best Chef Academy | Premium Culinary Learning</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+:root{--bg:#090909;--panel:#141414;--panel2:#1b1a18;--gold:#d6ad62;--gold2:#f2d99c;--text:#f7f3ea;--muted:#aaa49a;--line:#302b22;--green:#7fa88b;--red:#d97777;--shadow:0 18px 50px #0008}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 50% -15%,#332717 0%,#11100e 35%,var(--bg) 72%);color:var(--text);min-height:100vh;padding:24px 18px 110px}
+button,input{font:inherit}button{cursor:pointer}.container{max-width:1080px;margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:8px 0 24px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:13px}.brand-mark{width:48px;height:48px;border:1px solid var(--gold);border-radius:15px;display:grid;place-items:center;color:var(--gold2);font-size:25px;background:linear-gradient(145deg,#302516,#12100d);box-shadow:0 0 30px #d6ad6218}
+.brand h1{font:700 clamp(18px,3vw,25px) 'Playfair Display',serif;letter-spacing:.2px}.brand p{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.header-note{color:var(--muted);font-size:12px;text-align:right}.header-note strong{display:block;color:var(--gold2);font-size:13px}
+.eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:10px}
+h2{font:700 24px 'Playfair Display',serif;margin-bottom:10px}h3{font-size:14px}
+p{line-height:1.65}.muted{color:var(--muted)}
+.card{background:linear-gradient(145deg,#191816,#111);border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{font-size:19px;padding-bottom:13px;border-bottom:1px solid var(--line);margin-bottom:17px}
+.btn{background:linear-gradient(135deg,var(--gold2),#b9873f);color:#17120a;border:0;border-radius:11px;padding:12px 18px;font-weight:800;font-size:12px;box-shadow:0 7px 20px #d6ad6220;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.secondary{background:#24211b;color:var(--gold2);border:1px solid #665333;box-shadow:none}.btn.danger{background:#542b2b;color:#ffe4e4;box-shadow:none}
+input[type=text],input[type=time]{width:100%;background:#0d0d0c;border:1px solid #393329;color:var(--text);padding:13px 14px;border-radius:10px;outline:none;font-size:13px}
+input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #d6ad621a}input::placeholder{color:#77716a}
+#loginScreen{max-width:510px;margin:8vh auto 0;padding:34px;background:linear-gradient(150deg,#1e1b16,#111);border:1px solid #695431;border-radius:24px;text-align:center;box-shadow:0 25px 80px #000a}
+.login-emblem{width:68px;height:68px;border-radius:22px;margin:0 auto 20px;display:grid;place-items:center;background:#2c2417;border:1px solid var(--gold);font-size:32px}
+#loginScreen h2{font-size:27px}.login-input{margin:7px 0}.google-btn{width:100%;padding:12px;background:#f6f2e9;border:0;border-radius:10px;color:#27231d;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat-box{padding:18px;background:linear-gradient(145deg,#282116,#171512);border:1px solid #51412a;border-radius:15px;text-align:left}
+.stat-value{font:700 24px 'Playfair Display',serif;color:var(--gold2)}.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;margin-top:5px}
+.hero{min-height:240px;border-radius:22px;padding:30px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#0c0b09 0%,#0c0b09e8 44%,#0c0b0950 100%),url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85') center/cover;border:1px solid #59482d;margin-bottom:18px}
+.hero-content{max-width:520px;position:relative;z-index:1}.hero h2{font-size:clamp(28px,5vw,42px);line-height:1.12;margin-bottom:12px}.hero h2 span{color:var(--gold2)}.hero p{color:#c6bfb2;font-size:13px;margin-bottom:20px}
+.section-content{display:none}.section-content.active{display:block;animation:fade .25s ease}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.task-item{display:flex;align-items:center;gap:13px;padding:14px;background:#1b1a17;border:1px solid var(--line);border-radius:12px;margin:9px 0}.task-item input{width:19px;height:19px;accent-color:var(--gold)}.task-title{font-size:13px;font-weight:700}.task-time{font-size:11px;color:var(--muted);margin-top:3px}
+.recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.recipe-card{position:relative;background:#1c1a16;border:1px solid var(--line);border-radius:15px;overflow:hidden;cursor:pointer;transition:.2s}.recipe-card:hover{transform:translateY(-4px);border-color:#927342}.recipe-card img{width:100%;height:145px;object-fit:cover;display:block}.recipe-title{padding:12px;font-size:12px;font-weight:700}.lock-badge{position:absolute;top:10px;right:10px;background:#090909d9;color:var(--gold2);border:1px solid #6e5733;padding:5px 8px;border-radius:20px;font-size:10px}
+#recipeDetailView,.dm-container{display:none;background:#171613;border:1px solid var(--line);border-radius:16px;padding:18px}
+.detail-panel{background:#211f1a;padding:15px;border:1px solid var(--line);border-radius:12px;margin:12px 0}.detail-panel h3{color:var(--gold2);margin-bottom:8px}.detail-panel p{font-size:13px;white-space:pre-line}
+.back-btn{background:#28241d;color:var(--gold2);border:1px solid #5d4b2e;padding:9px 13px;border-radius:9px;margin-bottom:15px}
+.upload-options-card{display:none;background:#1b1915;border:1px solid var(--line);padding:15px;border-radius:13px;margin:15px 0}
+video{width:100%;max-height:340px;border-radius:14px;background:#000;margin-top:14px}
+.chat-box{height:230px;overflow:auto;background:#0d0d0c;border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:12px;font-size:13px}.chat-box div{padding:7px 0;border-bottom:1px solid #27231d}.chat-input-group{display:flex;gap:9px}.chat-list-item{display:flex;align-items:center;gap:12px;padding:13px;background:#1d1b17;border:1px solid var(--line);border-radius:12px;margin:9px 0;cursor:pointer}.avatar{width:43px;height:43px;object-fit:cover;border-radius:50%;border:1px solid var(--gold)}
+.profile-img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);padding:3px}.follow-stats{display:flex;justify-content:center;gap:25px;margin:16px;color:var(--muted);font-size:12px}.follow-stats span{color:var(--gold2);font-weight:800}
+.cert-box{background:linear-gradient(135deg,#3a2d18,#20190f);border:1px dashed var(--gold);padding:22px;border-radius:14px;text-align:center;color:var(--gold2)}
+.tab-menu{position:fixed;bottom:0;left:0;width:100%;display:flex;justify-content:center;gap:6px;background:#0b0b0bf2;backdrop-filter:blur(18px);border-top:1px solid #3c3325;padding:10px 8px calc(10px + env(safe-area-inset-bottom));z-index:1000}
+.tab-btn{background:transparent;border:0;color:#9e988e;display:flex;align-items:center;gap:7px;padding:10px 13px;border-radius:10px;font-size:11px;font-weight:700}.tab-btn span{font-size:16px}.tab-btn.active{background:#2b2418;color:var(--gold2);box-shadow:inset 0 0 0 1px #695431}
+.profile-setting{margin-top:14px;text-align:left;background:#1d1b17;padding:15px;border-radius:12px;border:1px solid var(--line)}
+@media(max-width:700px){body{padding:15px 12px 105px}.header-note{display:none}.card{padding:17px;border-radius:16px}.hero{padding:22px;min-height:250px}.recipe-grid{grid-template-columns:repeat(2,1fr);gap:10px}.recipe-card img{height:115px}.tab-menu{justify-content:space-around;gap:0}.tab-btn{padding:9px 7px;flex-direction:column;gap:3px;font-size:9px}.tab-btn span{font-size:17px}.stats-grid{gap:7px}.stat-box{padding:13px 10px}.stat-value{font-size:20px}.stat-label{font-size:8px}.chat-input-group{flex-direction:column}}
+@media(min-width:900px){.home-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.home-grid .card{height:100%}}
+
+/* ===== Best Chef Academy · Signature App UI ===== */
+:root{
+ --bg:#080a0a;--panel:#111615;--panel2:#171e1b;--gold:#d8b56e;--gold2:#f4dfad;
+ --text:#f6f3eb;--muted:#9ba49e;--line:#29332e;--green:#9fc6a9;
+ --shadow:0 22px 65px rgba(0,0,0,.42)
+}
+body{padding:22px 18px 116px;background:
+ radial-gradient(ellipse at 80% -15%,rgba(178,139,70,.19),transparent 38%),
+ radial-gradient(ellipse at 0% 30%,rgba(43,83,67,.16),transparent 34%),#080a0a}
+.container{max-width:1160px}
+header{padding:8px 0 22px;border-bottom:1px solid rgba(216,181,110,.2);margin-bottom:26px}
+.brand-mark{width:52px;height:52px;border-radius:18px;background:linear-gradient(145deg,#302819,#131a16);box-shadow:0 8px 28px #0008, inset 0 0 0 1px #d8b56e55}
+.brand h1{font-size:clamp(21px,3vw,28px);letter-spacing:.3px}
+.brand p{font-size:9px;letter-spacing:3px;color:#d8b56e}
+.header-note{font-size:11px;letter-spacing:.4px}
+.header-note strong{font:700 15px 'Playfair Display',serif;color:var(--gold2)}
+.card{background:linear-gradient(145deg,rgba(24,32,28,.96),rgba(13,18,16,.98));border:1px solid rgba(216,181,110,.16);border-radius:24px;padding:25px;box-shadow:var(--shadow)}
+.card h2{font-size:22px;border:0;padding:0;margin:0 0 14px}
+.eyebrow{font-size:9px;letter-spacing:3px;color:#d8b56e}
+.btn{border-radius:13px;padding:13px 20px;letter-spacing:.2px;background:linear-gradient(135deg,#f4dfad,#c39a51);box-shadow:0 8px 24px #d8b56e24}
+.btn.secondary{background:linear-gradient(145deg,#202a25,#141b18);border:1px solid #53644f;color:#e4d2a6}
+.btn.danger{background:#482b2b}
+#loginScreen{background:linear-gradient(145deg,#17211c,#0d1210);border:1px solid #b9975c66;border-radius:28px;padding:38px;box-shadow:0 30px 90px #000b}
+.login-emblem{border-radius:20px;background:linear-gradient(145deg,#3c3020,#18221c);box-shadow:0 10px 30px #0008}
+input[type=text],input[type=time]{background:#0b100e;border:1px solid #344039;border-radius:13px;padding:14px 15px}
+.hero{min-height:310px;border-radius:28px;padding:38px;background:
+ linear-gradient(90deg,rgba(7,11,9,.97) 0%,rgba(7,11,9,.84) 43%,rgba(7,11,9,.12) 100%),
+ url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=90') center/cover;
+ border:1px solid #c4a06455;box-shadow:0 28px 70px #0008}
+.hero h2{font-size:clamp(34px,5vw,52px);max-width:560px;line-height:1.05}
+.hero p{font-size:14px;max-width:480px;color:#d1d3ca}
+.stats-grid{gap:14px}
+.stat-box{background:linear-gradient(145deg,#202b24,#121a16);border:1px solid #b9975c38;border-radius:18px;padding:20px}
+.stat-value{font-size:28px}
+.stat-label{letter-spacing:1.7px}
+.recipe-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0 20px}
+.recipe-tools input{flex:1;min-width:190px}
+.recipe-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.recipe-card{background:#111916;border:1px solid #344139;border-radius:19px;box-shadow:0 12px 28px #0005}
+.recipe-card:hover{transform:translateY(-5px);border-color:#c5a364;box-shadow:0 20px 40px #0008}
+.recipe-card img{height:180px;transition:transform .5s}
+.recipe-card:hover img{transform:scale(1.04)}
+.recipe-title{padding:15px 15px 17px;font-size:14px;letter-spacing:.1px}
+.recipe-subtitle{display:block;color:#a8b0a9;font-size:10px;font-weight:500;margin-top:5px}
+.lock-badge{background:#101612ed;border-color:#b9975c;color:#f4dfad}
+#recipeDetailView{background:linear-gradient(145deg,#17211c,#0c110e);border:1px solid #6a5837;border-radius:22px;padding:24px}
+.detail-panel{background:#111a15;border:1px solid #354239;border-radius:16px;padding:18px}
+.detail-panel h3{color:#e8d19b}
+.back-btn{border-radius:12px;background:#1b2821;border:1px solid #53644f;padding:11px 15px}
+.task-item,.chat-list-item{background:#131c17;border:1px solid #2c3a31;border-radius:15px}
+.task-item{padding:16px}
+.chat-box{background:#0a100d;border-color:#293a30;border-radius:16px}
+.profile-setting{background:#131c17;border-color:#2c3a31}
+.tab-menu{
+ width:min(780px,calc(100% - 28px));left:50%;transform:translateX(-50%);bottom:14px;
+ justify-content:space-around;gap:3px;background:rgba(14,21,17,.91);
+ border:1px solid rgba(216,181,110,.3);border-radius:24px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));
+ box-shadow:0 18px 55px #000b;backdrop-filter:blur(24px)
+}
+.tab-btn{position:relative;min-width:82px;justify-content:center;flex-direction:column;gap:5px;
+ padding:9px 11px;border-radius:16px;color:#89958c;font-size:10px;letter-spacing:.2px;transition:.25s}
+.tab-btn .nav-icon{width:22px;height:22px;display:grid;place-items:center}
+.tab-btn svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tab-btn.active{background:linear-gradient(145deg,#3b3020,#1c261f);color:#f4dfad;box-shadow:inset 0 0 0 1px #c7a15c66,0 5px 18px #0005}
+.tab-btn.active:before{content:"";position:absolute;top:4px;width:18px;height:2px;border-radius:2px;background:#f4dfad}
+.tab-btn:hover{color:#f4dfad;background:#202b24}
+@media(max-width:700px){
+ body{padding:14px 12px 112px}
+ header{margin-bottom:18px}
+ .brand-mark{width:45px;height:45px}
+ .brand h1{font-size:21px}
+ .card{padding:18px;border-radius:19px}
+ .hero{min-height:285px;padding:23px;border-radius:23px;background-position:58% center}
+ .hero h2{font-size:36px}
+ .recipe-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .recipe-card img{height:132px}
+ .recipe-title{font-size:12px;padding:12px}
+ .recipe-subtitle{font-size:9px}
+ .tab-menu{bottom:9px;width:calc(100% - 18px);padding:7px 5px calc(7px + env(safe-area-inset-bottom));border-radius:20px}
+ .tab-btn{min-width:0;flex:1;padding:8px 3px;font-size:8px;gap:4px}
+ .tab-btn .nav-icon{width:20px;height:20px}
+ .tab-btn svg{width:19px;height:19px}
+ .stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .stat-box{padding:13px 9px}
+ .stat-value{font-size:20px}
+ .stat-label{font-size:8px;letter-spacing:.7px}
+}
+@media(min-width:900px){.recipe-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+
+/* Recipe learning experience */
+.recipe-detail-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch;margin:8px 0 20px}
+.recipe-detail-photo{width:100%;height:100%;min-height:230px;object-fit:cover;border-radius:20px;border:1px solid #b9975c55}
+.recipe-detail-intro{display:flex;flex-direction:column;justify-content:center}
+.recipe-detail-intro h2{font-size:clamp(25px,4vw,38px);line-height:1.08;margin:6px 0 10px}
+.recipe-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0}
+.meta-tile{padding:12px 10px;background:#111b16;border:1px solid #34463a;border-radius:14px}
+.meta-tile b{display:block;color:#f2d99c;font-size:14px;margin-top:5px}
+.meta-tile span{font-size:9px;color:#aab5ac;letter-spacing:1px;text-transform:uppercase}
+.recipe-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.recipe-detail-grid .detail-panel{margin:0}
+.recipe-video{background:linear-gradient(145deg,#1a2820,#101713);border:1px solid #9b7a4566;border-radius:20px;padding:16px;margin:15px 0}
+.recipe-video-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}
+.recipe-video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#050807}
+.video-search-link{display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#f4dfad,#c39a51);color:#17120a;text-decoration:none;font-size:12px;font-weight:800}
+.method-step{display:grid;grid-template-columns:66px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #2b3a30}
+.method-step:last-child{border-bottom:0}
+.method-time{color:#f0d69a;font-size:11px;font-weight:800;letter-spacing:.5px}
+.method-copy{font-size:13px;line-height:1.65;color:#e8e8df}
+.ingredient-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ingredient-item{display:flex;gap:9px;align-items:flex-start;padding:9px 10px;background:#101914;border:1px solid #2c3b31;border-radius:11px;font-size:12px;line-height:1.45}
+.ingredient-item:before{content:"✦";color:#d8b56e}
+.recipe-note{font-size:11px;color:#9eaaa1;line-height:1.6;margin-top:9px}
+@media(max-width:680px){
+ .recipe-detail-hero{grid-template-columns:1fr;gap:14px}
+ .recipe-detail-photo{height:205px;min-height:0}
+ .recipe-meta{grid-template-columns:repeat(2,1fr)}
+ .recipe-detail-grid{grid-template-columns:1fr}
+ .ingredient-list{grid-template-columns:1fr}
+}
+
+
+/* Social community upgrade */
+.social-top{display:flex;align-items:center;justify-content:space-between}.social-top h2{margin:0!important;padding:0!important;border:0!important}
+.round-action,.send-round{width:42px;height:42px;border:0;border-radius:50%;background:linear-gradient(135deg,#f4dfad,#c39a51);color:#17120a;font-size:25px;font-weight:700}
+.social-search{display:flex;align-items:center;gap:10px;background:#0d1210;border:1px solid #354039;border-radius:14px;padding:0 13px;margin:18px 0}.social-search span{font-size:25px;color:var(--gold2)}.social-search input{border:0!important;background:transparent!important;box-shadow:none!important;padding:14px 0!important;min-width:0}
+.social-section-label{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:800;margin:18px 0 9px}.friend-results,.chat-threads{display:grid;gap:8px}.friend-row,.thread-row{display:flex;align-items:center;gap:11px;padding:11px;background:#151d19;border:1px solid #2b3931;border-radius:14px;cursor:pointer;text-align:left;color:var(--text);width:100%}.friend-row:hover,.thread-row:hover{border-color:var(--gold)}.social-avatar{width:45px;height:45px;border-radius:50%;object-fit:cover;border:1px solid #9e8658;flex-shrink:0}.friend-meta,.thread-meta{flex:1;min-width:0}.friend-meta b,.thread-meta b{display:block;font-size:13px}.friend-meta small,.thread-meta small{display:block;color:var(--muted);font-size:11px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini-follow{border:1px solid #8d7449;color:var(--gold2);background:#24251e;border-radius:20px;padding:7px 11px;font-size:10px;font-weight:700}.thread-time{font-size:10px;color:var(--muted)}.social-chat-view{padding:14px!important;background:#111815!important}.chat-header{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px}.chat-header .back-btn{margin:0}.chat-heading{flex:1}.chat-heading b,.chat-heading small{display:block}.chat-heading small{font-size:10px;color:var(--muted);margin-top:3px}.online-dot{width:9px;height:9px;border-radius:50%;background:#83c99b}.social-chat-box{height:min(55vh,480px);border:0!important;background:#0b100e!important;display:flex;flex-direction:column;gap:9px;padding:13px!important}.message-bubble{max-width:82%;padding:10px 13px;border-radius:15px;background:#202a24;font-size:13px;align-self:flex-start;overflow-wrap:anywhere}.message-bubble.mine{align-self:flex-end;background:#57482c;color:#fff4d9}.message-bubble small{display:block;font-size:9px;opacity:.65;margin-top:4px}.social-composer{align-items:center}.social-composer input{flex:1;min-width:0;border-radius:25px!important;background:#1b241f!important}.send-round{width:43px;height:43px;font-size:18px;flex-shrink:0}
+.profile-social-card{overflow:hidden}.profile-cover{height:110px;margin:-25px -25px 0;background:linear-gradient(120deg,#263a2e,#66502d 60%,#1b2822);border-bottom:1px solid #77603a}.profile-main-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:-43px;padding:0 4px}.profile-photo-wrap{position:relative}.profile-photo-wrap .profile-img{width:94px;height:94px;background:#111;padding:3px}.photo-edit{position:absolute;right:0;bottom:3px;background:var(--gold2);color:#17120a;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;font-weight:900;cursor:pointer}.photo-edit input{display:none}.edit-profile-btn{font-size:11px;padding:9px 13px}.social-profile-name{font:700 22px 'Playfair Display';color:var(--gold2);margin-top:12px}.profile-bio{font-size:12px;color:#c4c9c4;margin-top:4px}.social-follow-stats{justify-content:flex-start;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:15px 0}.social-follow-stats div{flex:1;display:flex;flex-direction:column;gap:3px;text-align:center;border-right:1px solid var(--line)}.social-follow-stats div:last-child{border:0}.social-follow-stats b{font-size:17px;color:var(--gold2)}.social-follow-stats span{font-size:10px;color:var(--muted)}.profile-tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.profile-tool{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;padding:13px 5px;background:#18211c;border:1px solid #344238;border-radius:13px;text-align:center;cursor:pointer}.profile-tool>span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#332b1c;color:var(--gold2);font-size:19px}.profile-tool b{font-size:10px}.profile-tool small{font-size:9px;color:var(--muted)}.profile-tool input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.profile-content-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:22px 0 10px}.profile-content-heading h3{color:var(--gold2)}.profile-content-heading span{font-size:9px}.story-strip{display:flex;gap:10px;overflow:auto;padding:4px 0 12px}.story-thumb{width:76px;height:92px;border-radius:13px;object-fit:cover;border:2px solid #bd9856;flex-shrink:0}.my-reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.my-reel-grid video{width:100%;height:115px;object-fit:cover;margin:0;border-radius:10px;background:#000}.empty-social{font-size:11px;color:var(--muted);padding:12px;background:#141b17;border-radius:10px;grid-column:1/-1}.tab-menu{gap:0}.tab-btn{flex:1;justify-content:center;flex-direction:column;gap:3px;padding:8px 4px}.tab-btn .nav-icon{font-size:20px!important;line-height:1.1}.tab-btn{font-size:9px}
+.ai-fab{position:fixed;right:18px;bottom:94px;z-index:3000;width:54px;height:54px;border-radius:50%;border:1px solid #f2d99c;background:linear-gradient(145deg,#f4dfad,#b9873f);color:#17120a;font-weight:900;font-size:17px;box-shadow:0 7px 25px #0009;touch-action:none;display:none;cursor:grab}.ai-fab:active{cursor:grabbing}.ai-mini-panel{position:fixed;right:16px;bottom:158px;z-index:2999;width:min(340px,calc(100vw - 28px));background:#111a15;border:1px solid #9a7a43;border-radius:18px;padding:14px;box-shadow:0 20px 60px #000b;display:none}.ai-mini-panel h3{color:var(--gold2);margin-bottom:8px}.ai-mini-log{height:180px;overflow:auto;background:#090e0c;border-radius:10px;padding:10px;font-size:12px;margin-bottom:9px}.ai-mini-log p{padding:6px 0;border-bottom:1px solid #28342d}.ai-mini-controls{display:flex;gap:7px}.ai-mini-controls input{min-width:0;flex:1}.ai-mini-controls button{border:0;border-radius:10px;padding:0 12px;background:var(--gold2);font-weight:800}
+@media(max-width:520px){.profile-cover{margin-left:-17px;margin-right:-17px}.profile-tools-grid{gap:6px}.profile-tool{padding:11px 3px}.profile-tool b{font-size:9px}.profile-content-heading{align-items:flex-start;flex-direction:column}.ai-fab{width:50px;height:50px}}
+
+
+/* iOS-inspired launcher + community feed */
+.ios-launcher{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:0 0 18px;padding:16px;border:1px solid rgba(216,181,110,.18);border-radius:22px;background:linear-gradient(145deg,rgba(28,38,32,.9),rgba(12,17,14,.92));box-shadow:0 14px 38px #0006}
+.launcher-app{border:0;background:transparent;color:var(--text);display:flex;flex-direction:column;align-items:center;gap:7px;font-size:10px;font-weight:700;min-width:0}
+.launcher-icon{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-size:24px;color:#f4dfad;background:linear-gradient(145deg,#394b3d,#17231c);border:1px solid #a88a5366;box-shadow:inset 0 1px 0 #ffffff20,0 7px 16px #0006}
+.launcher-app:nth-child(2) .launcher-icon{background:linear-gradient(145deg,#65502c,#282015)}
+.launcher-app:nth-child(3) .launcher-icon{background:linear-gradient(145deg,#355b52,#17251f)}
+.launcher-app:nth-child(4) .launcher-icon{background:linear-gradient(145deg,#693d35,#281915)}
+.launcher-app:nth-child(5) .launcher-icon{background:linear-gradient(145deg,#4a466d,#1d1c35)}
+.launcher-app:nth-child(6) .launcher-icon{background:linear-gradient(145deg,#4a5d76,#1a2736)}
+.community-composer{display:grid;gap:10px}
+.community-composer textarea{width:100%;min-height:88px;resize:vertical;background:#0c120f;border:1px solid #354238;color:var(--text);border-radius:13px;padding:13px;font:inherit;font-size:13px;outline:none}
+.community-composer input[type=file]{width:100%;font-size:11px;color:var(--muted);padding:9px;background:#111a15;border:1px solid var(--line);border-radius:10px}
+.community-post{background:linear-gradient(145deg,#18221c,#101612);border:1px solid #334238;border-radius:18px;padding:15px;margin:12px 0}
+.community-post-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.community-post-head .social-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.community-post-head small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+.community-post-caption{font-size:13px;white-space:pre-wrap;margin:8px 0 12px}
+.community-media{display:block;width:100%;max-height:420px;object-fit:contain;border-radius:13px;background:#050706}
+.community-actions{display:flex;align-items:center;gap:12px;margin-top:11px}
+.like-button{border:1px solid #675334;background:#211f19;color:#f4dfad;border-radius:22px;padding:8px 13px;font-weight:800;font-size:12px}
+.like-button.liked{background:#4b2928;border-color:#a75d5b;color:#ffd8d5}
+.community-empty{padding:24px 15px;text-align:center;border:1px dashed #53624f;border-radius:15px;color:var(--muted);font-size:12px}
+.reel-feed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.reel-card{background:#121a15;border:1px solid #344238;border-radius:16px;padding:10px;min-width:0}
+.reel-card video{width:100%;height:290px;object-fit:cover;background:#000;border-radius:12px;margin:0}
+.reel-card .community-post-caption{font-size:12px}
+.tab-menu{background:rgba(20,27,23,.84)!important;border:1px solid rgba(235,214,171,.25)!important;backdrop-filter:blur(28px) saturate(160%)!important;-webkit-backdrop-filter:blur(28px) saturate(160%)!important;box-shadow:0 18px 55px #000b, inset 0 1px 0 #ffffff15!important}
+@media(max-width:650px){.ios-launcher{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 8px}.launcher-icon{width:50px;height:50px}.reel-feed{grid-template-columns:1fr}.reel-card video{height:360px}.community-post{padding:12px}}
+
+.header-tools{display:flex;align-items:center;gap:16px}.language-control{display:flex;flex-direction:column;gap:5px;color:var(--gold2);font-size:10px;font-weight:700;letter-spacing:.5px}.language-control select{background:#171510;color:var(--text);border:1px solid #665333;border-radius:9px;padding:9px 28px 9px 10px;font:600 11px 'DM Sans',sans-serif;max-width:180px}.language-control select:focus{outline:2px solid #d6ad6266}@media(max-width:620px){.header-tools{align-items:flex-end;flex-direction:column;gap:8px}.header-note{display:none}.language-control{align-items:flex-end}.language-control select{max-width:155px}}
+
+
+/* Training camera and private on-device video library */
+#trainingCameraModal{position:fixed;inset:0;z-index:5000;background:#050706f5;display:none;align-items:center;justify-content:center;padding:16px}
+#trainingCameraModal.open{display:flex}
+.training-camera-card{width:min(620px,100%);background:#121713;border:1px solid #8c7449;border-radius:20px;padding:16px;max-height:92vh;overflow:auto}
+#trainingLivePreview,#trainingPlayback{width:100%;max-height:58vh;aspect-ratio:16/9;object-fit:contain;background:#000;border-radius:13px;margin:10px 0}
+.training-controls{display:flex;gap:9px;flex-wrap:wrap}.training-controls button{flex:1;min-width:120px}
+.training-record-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e34b4b;margin-right:7px}
+.library-video{background:#171d19;border:1px solid #3a463d;border-radius:14px;padding:12px;margin:12px 0}
+.library-video video{width:100%;max-height:300px;background:#000;border-radius:10px}
+.library-meta{font-size:11px;color:#b8b9ae;margin:7px 0}
+
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+ <div class="brand"><div class="brand-mark">♨</div><div><h1>Best Chef Academy</h1><p>THE ART OF CULINARY EXCELLENCE</p></div></div>
+ <div class="header-tools"><div class="header-note"><strong>Curated Culinary Learning</strong>Learn • Create • Achieve</div><label class="language-control" for="languageSelect"><span>🌐 Language</span><select id="languageSelect" aria-label="Choose app language" onchange="applyAppLanguage(this.value)"><option value="en">English</option><option value="ta">தமிழ் (Tamil)</option><option value="hi">हिन्दी (Hindi)</option><option value="bn">বাংলা (Bengali)</option><option value="te">తెలుగు (Telugu)</option><option value="ml">മലയാളം (Malayalam)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="mr">मराठी (Marathi)</option><option value="es">Español (Spanish)</option><option value="fr">Français (French)</option><option value="pt">Português (Portuguese)</option><option value="ar">العربية (Arabic)</option><option value="zh">中文 (Chinese)</option><option value="ja">日本語 (Japanese)</option><option value="ko">한국어 (Korean)</option><option value="de">Deutsch (German)</option><option value="id">Bahasa Indonesia</option><option value="ru">Русский (Russian)</option></select></label></div>
+</header>
+
+<div id="loginScreen">
+ <div class="card" role="note" style="max-width:520px;margin:0 auto 16px;border-color:#8d7449;font-size:12px">Preview build · Some features are local demos. Secure accounts, cloud sync and online uploads must be connected before public release.</div>
+ <div class="login-emblem">♨</div><div class="eyebrow">Welcome to the academy</div>
+ <h2>Begin Your Culinary Journey</h2><p class="muted" style="font-size:13px;margin-bottom:20px">Enter your details to sign in.</p>
+ <input type="text" id="firstName" class="login-input" placeholder="First Name*">
+ <input type="text" id="lastName" class="login-input" placeholder="Last Name*">
+ <input type="tel" id="phoneInput" class="login-input" placeholder="Phone Number (optional)" autocomplete="tel" inputmode="tel" aria-label="Phone number (optional)">
+ <button class="btn" onclick="handleManualLogin()" style="width:100%;margin:12px 0">Login / Register →</button>
+ <div class="muted" style="font-size:11px;margin:8px">OR</div>
+ <button class="google-btn" onclick="handleGoogleLogin()" type="button"><b style="color:#4285F4">G</b> Continue with Google</button><p class="muted" style="font-size:10px;margin-top:8px">Google sign-in will be enabled after secure OAuth setup.</p>
+</div>
+
+<div id="mainApp" style="display:none">
+<div id="home" class="section-content active">
+ <div class="ios-launcher" aria-label="Academy app launcher">
+  <button class="launcher-app" onclick="switchTab('home',document.querySelectorAll('.tab-btn')[0])"><span class="launcher-icon">♨</span><span>Academy</span></button>
+  <button class="launcher-app" onclick="switchTab('recipes',document.querySelectorAll('.tab-btn')[1])"><span class="launcher-icon">🍲</span><span>Recipes</span></button>
+  <button class="launcher-app" onclick="switchTab('feed',document.querySelectorAll('.tab-btn')[2])"><span class="launcher-icon">▤</span><span>Community</span></button>
+  <button class="launcher-app" onclick="switchTab('reels',document.querySelectorAll('.tab-btn')[3])"><span class="launcher-icon">▶</span><span>Clips</span></button>
+  <button class="launcher-app" onclick="switchTab('messages',document.querySelectorAll('.tab-btn')[4])"><span class="launcher-icon">✉</span><span>Messages</span></button>
+  <button class="launcher-app" onclick="switchTab('profile',document.querySelectorAll('.tab-btn')[5])"><span class="launcher-icon">◉</span><span>Profile</span></button>
+ </div>
+ <div class="hero"><div class="hero-content"><div class="eyebrow">Your kitchen. Your mastery.</div><h2>Craft Your Path to <span>Master Chef</span></h2><p>Build your skills, explore world cuisines and unlock your culinary potential — one level at a time.</p><button class="btn" onclick="switchTab('recipes',document.querySelectorAll('.tab-btn')[1])">Explore Recipes →</button></div></div>
+ <div class="card"><div class="stats-grid"><div class="stat-box"><div class="stat-value" id="levelVal">Level 1</div><div class="stat-label">Level · Max 200</div></div><div class="stat-box"><div class="stat-value" id="xpVal">0 XP</div><div class="stat-label">Experience</div></div><div class="stat-box"><div class="stat-value" id="recipeUnlocked">100</div><div class="stat-label">Recipe access</div></div></div></div>
+ <div class="home-grid">
+ <div class="card" id="certCard" style="display:none"><div class="eyebrow">Achievement unlocked</div><h2>Grand Reward</h2><div class="cert-box"><h3>🎓 Master Chef Certificate</h3><p id="certText">Congratulations!</p><p style="font-size:11px;margin-top:8px">You have successfully completed all 200 Levels & 4,000 Recipes!</p></div></div>
+ <div class="card"><div class="eyebrow">Plan your progress</div><h2>Custom Task & Timing Setter</h2><div style="display:flex;gap:9px;margin-bottom:10px"><input type="time" id="customTimeInput" style="width:38%"><input type="text" id="customTaskInput" placeholder="Task name..." style="width:62%"></div><button class="btn" onclick="addNewCustomTask()" style="width:100%">＋ Add My Task</button></div>
+ <div class="card"><div class="eyebrow">Daily discipline · +50 XP</div><h2>Daily Masterclass Tasks</h2><div id="taskListContainer"><div class="task-item"><input type="checkbox" class="task-chk" onclick="verifyAndCheck(this)"><div class="task-info"><div class="task-title">05:00 AM: Stamina & Strength Workout</div><div class="task-time">Core, Squats & Wrist Rotations</div></div></div></div></div>
+ </div>
+</div>
+
+<div id="recipes" class="section-content">
+ <div class="card" id="recipeListView"><div class="eyebrow">Explore the world on a plate</div><h2>Signature Recipe Collection</h2><p class="muted" style="font-size:12px;margin:-5px 0 15px">Chef-curated classics, signature plates and global favourites · Unlock as you progress</p><div class="recipe-tools"><input type="text" id="recipeSearch" placeholder="Search 4,000 recipes..." oninput="renderRecipes()"><span class="muted" style="font-size:11px">✦ 4,000 recipe learning feed</span></div><div class="recipe-tools" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><select id="recipeLevelFilter" onchange="renderRecipes()" style="flex:1;min-width:130px"><option value="all">All Levels</option></select><select id="recipeStarFilter" onchange="renderRecipes()" style="flex:1;min-width:130px"><option value="all">All Star Ratings</option><option value="1">★ 1 Star</option><option value="2">★★ 2 Stars</option><option value="3">★★★ 3 Stars</option><option value="4">★★★★ 4 Stars</option><option value="5">★★★★★ 5 Stars</option></select></div><p id="recipeFeedStatus" class="muted" style="font-size:11px;margin:10px 0"></p><div class="recipe-grid" id="recipeGridContainer"></div></div>
+ <div id="recipeDetailView">
+ <div class="recipe-detail-hero"><img id="detailImage" class="recipe-detail-photo" src="" alt="Recipe photo"><div class="recipe-detail-intro"><div class="eyebrow">BEST CHEF ACADEMY · RECIPE CLASS</div><h2 id="detailTitle">Recipe Title</h2><p id="detailCuisine" class="muted" style="font-size:12px"></p><div class="recipe-meta"><div class="meta-tile"><span>Prep time</span><b id="detailPrep">—</b></div><div class="meta-tile"><span>Cook time</span><b id="detailCook">—</b></div><div class="meta-tile"><span>Total time</span><b id="detailTotal">—</b></div><div class="meta-tile"><span>Serves</span><b id="detailServes">—</b></div></div><div class="muted" style="font-size:11px">Skill level: <strong id="detailLevel" style="color:#f2d99c"></strong></div></div></div>
+ <div class="recipe-video"><div class="recipe-video-head"><div><div class="eyebrow">WATCH & LEARN</div><h3 style="color:#f4dfad">Recipe Video Lesson</h3></div><span class="muted" style="font-size:10px">Video tutorial</span></div><div id="detailVideo"></div><p class="recipe-note">Video lessons open from the original creator/platform. Video availability may depend on your internet connection.</p></div>
+ <div class="recipe-detail-grid">
+  <div class="detail-panel"><h3>✦ Ingredients & Measurements</h3><div id="detailIngredients" class="ingredient-list"></div><p class="recipe-note">Measurements are for the serving count shown above. Adjust proportionally for more servings.</p></div>
+  <div class="detail-panel"><h3>✦ Chef's Method & Timing</h3><div id="detailSteps"></div></div>
+  <div class="detail-panel"><h3>✦ Plating & Serving</h3><p id="detailServing"></p></div>
+  <div class="detail-panel"><h3>✦ Chef's Notes</h3><p id="detailNotes"></p></div>
+ </div>
+</div>
+</div>
+
+<div id="feed" class="section-content">
+ <div class="card">
+  <div class="eyebrow">BEST CHEF COMMUNITY</div><h2>Community Feed</h2>
+  <p class="muted" style="font-size:12px;margin:-4px 0 14px">Share your cooking photos, notes, and achievements.</p>
+  <div class="community-composer">
+   <textarea id="postCaptionInput" placeholder="What did you cook today? Share your chef moment..."></textarea>
+   <input id="postMediaInput" type="file" accept="image/*,video/*">
+   <button class="btn" onclick="createCommunityPost()">＋ Publish Post</button>
+  </div>
+  <p class="muted" style="font-size:10px;margin-top:8px">Posts and likes are saved on this device in this demo.</p>
+ </div>
+ <div id="communityFeedList"></div>
+</div>
+
+<div id="reels" class="section-content">
+ <div class="card">
+  <div class="eyebrow">CHEF SHORT VIDEOS</div><h2>Clips</h2>
+  <p class="muted" style="font-size:12px;margin:-4px 0 14px">Upload cooking videos and like clips shared by others.</p>
+  <div class="community-composer">
+   <label class="muted" for="reelMediaInput">Photo or video</label>
+   <input id="reelMediaInput" type="file" accept="image/*,video/*" onchange="previewClipMedia()">
+   <label class="muted" for="clipMusicLanguage">Music language</label>
+   <select id="clipMusicLanguage" class="input" style="width:100%;padding:12px;border-radius:10px;background:#171a18;color:#fff;border:1px solid #514a39">
+    <option value="Tamil">Tamil</option><option value="English">English</option><option value="Korean">Korean</option><option value="Hindi">Hindi</option><option value="Malayalam">Malayalam</option><option value="Telugu">Telugu</option><option value="World Music">World Music</option>
+   </select>
+   <label class="muted" for="reelMusicInput">Add your music file (MP3 / M4A / WAV / AAC)</label>
+   <input id="reelMusicInput" type="file" accept="audio/*" onchange="previewClipMusic()">
+   <div id="clipMusicPreview" style="display:none;margin:8px 0"></div>
+   <div id="clipMediaPreview" style="display:none;margin:8px 0"></div>
+   <input id="reelCaptionInput" type="text" placeholder="Write a caption for your clip...">
+   <button class="btn" onclick="publishReelFromStudio()">＋ Share Photo / Video with Music</button>
+   <p class="muted" style="font-size:10px;margin:8px 0 0">Choose a photo or video, then add an audio track. Only use music you own or have permission to use.</p>
+  </div>
+ </div>
+ <div class="card">
+  <div class="eyebrow">WATCH & APPRECIATE</div><h2>Clips Feed</h2>
+  <div id="reelFeedList" class="reel-feed"></div>
+ </div>
+ <div class="card" style="text-align:center">
+  <div class="eyebrow">CREATE & SHARE</div><h2>Chef Studio & Live Camera</h2>
+  <p class="muted" style="font-size:13px;margin-bottom:18px">Open the camera to record your cooking practice.</p>
+  <button class="btn secondary" onclick="startCamera()">🔴 Open Camera</button>
+  <video id="webcam" autoplay playsinline muted></video><p id="cameraStatus" class="muted" style="font-size:11px;margin-top:8px"></p>
+ </div>
+</div>
+
+
+<div id="library" class="section-content">
+ <div class="card"><div class="eyebrow">YOUR TRAINING RECORDINGS</div><h2>Video Library</h2>
+ <p class="muted" style="font-size:12px">Your saved practice recordings are stored privately in this browser on this device.</p>
+ <div id="trainingLibraryList"><p class="muted">No training videos saved yet. Complete a task and record your practice to see it here.</p></div>
+ </div>
+</div>
+
+<div id="messages" class="section-content">
+ <div class="social-messages card" id="chatListView">
+  <div class="social-top"><div><div class="eyebrow">BEST CHEF COMMUNITY</div><h2>Messages</h2></div><button class="round-action" onclick="createCommunityGroup()" title="Create group">＋</button></div>
+  <div class="social-search"><span>⌕</span><input id="friendSearch" type="search" placeholder="Search friends or groups..." oninput="renderSocialDirectory()"></div>
+  <div class="social-section-label">YOUR FRIENDS</div><div id="friendResults" class="friend-results"></div>
+  <div class="social-section-label">CHATS</div><div id="chatThreads" class="chat-threads"></div>
+ </div>
+ <div class="dm-container social-chat-view" id="activeChatView">
+  <div class="chat-header"><button class="back-btn" onclick="backToChatList()">←</button><div class="chat-heading"><b id="chatWithTitle">Chat</b><small id="chatSubtitle">Best Chef Community</small></div><span class="online-dot"></span></div>
+  <div class="chat-box social-chat-box" id="dmChatBox" aria-live="polite"></div>
+  <div class="chat-input-group social-composer"><input type="text" id="dmUserInput" placeholder="Message..." onkeydown="if(event.key==='Enter')sendDMMessage()"><button class="send-round" onclick="sendDMMessage()">➤</button></div>
+ </div>
+</div>
+
+<div id="aiChat" class="section-content"><div class="card"><div class="eyebrow">Your culinary companion</div><h2>AI Kitchen Concierge</h2><div class="chat-box" id="aiChatBox"><div><b>AI:</b> Ask your cooking doubts instantly!</div></div><div class="chat-input-group"><input type="text" id="userInput" placeholder="Ask cooking doubt..."><button class="btn" onclick="sendToAI()">Send</button></div></div></div>
+
+<div id="profile" class="section-content">
+ <div class="card profile-social-card">
+  <div class="eyebrow">YOUR ACADEMY IDENTITY</div>
+  <div class="profile-cover"></div>
+  <div class="profile-main-row"><div class="profile-photo-wrap"><img id="profileImagePreview" class="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Profile"><label class="photo-edit" title="Change profile photo">＋<input type="file" accept="image/*" onchange="updateProfilePic(event)"></label></div><button class="btn secondary edit-profile-btn" onclick="editMyProfile()">✎ Edit Profile</button></div>
+  <p id="profileName" class="social-profile-name">Chef</p><p id="profilePhoneDisplay" class="muted" style="font-size:12px"></p><p id="profileBio" class="profile-bio">Learning, creating and sharing great food ✨</p>
+  <div class="follow-stats social-follow-stats"><div><b id="postCount">0</b><span>Posts</span></div><div><b id="followerCount">142</b><span>Followers</span></div><div><b id="followingCount">38</b><span>Following</span></div></div>
+  <div class="profile-tools-grid">
+   <label class="profile-tool"><span>＋</span><b>Add Story</b><small>Photo / short clip</small><input type="file" accept="image/*,video/*" onchange="uploadStory(event)"></label>
+   <label class="profile-tool"><span>▶</span><b>Upload Video</b><small>Share a cooking clip</small><input type="file" accept="video/*" onchange="uploadReel(event)"></label>
+   <label class="profile-tool" onclick="document.getElementById('wallpaperInput').click()"><span>▧</span><b>Wallpaper</b><small>Personalise app</small></label><input id="wallpaperInput" type="file" accept="image/*" hidden onchange="changeWallpaper(event)">
+  </div>
+  <div class="profile-content-heading"><h3>Your Stories & Videos</h3><span class="muted">Only on this device in this demo</span></div>
+  <div id="myStoryStrip" class="story-strip"><div class="empty-social">Your stories will appear here.</div></div>
+  <div id="myReelGrid" class="my-reel-grid"><div class="empty-social">Your uploaded videos will appear here.</div></div>
+  <button class="btn secondary" onclick="showPrivacyNotice()" style="margin-top:20px;width:100%">Privacy & Data</button>
+  <button class="btn danger" onclick="deleteLocalAccountData()" style="margin-top:10px;width:100%">Delete local data</button>
+  <button class="btn danger" onclick="handleLogout()" style="margin-top:10px;width:100%">Logout</button>
+ </div>
+</div>
+</div>
+</div>
+
+<div class="tab-menu" id="bottomNav" style="display:none">
+<button class="tab-btn active" onclick="switchTab('home',this)"><span class="nav-icon">⌂</span>Home</button>
+<button class="tab-btn" onclick="switchTab('recipes',this)"><span class="nav-icon">🍲</span>Recipes</button>
+<button class="tab-btn" onclick="switchTab('feed',this)"><span class="nav-icon">▤</span>Feed</button>
+<button class="tab-btn" onclick="switchTab('reels',this)"><span class="nav-icon">▶</span>Clips</button>
+<button class="tab-btn" onclick="switchTab('messages',this)"><span class="nav-icon">✉</span>Chat</button>
+<button class="tab-btn" onclick="switchTab('profile',this)"><span class="nav-icon">◉</span>Profile</button>
+<button class="tab-btn" onclick="switchTab('library',this)"><span class="nav-icon">▣</span>Library</button>
+</div>
+</div>
+</div>
+
+
+<div id="trainingCameraModal" role="dialog" aria-modal="true" aria-label="Training video recorder">
+ <div class="training-camera-card">
+  <div class="eyebrow">BEST CHEF ACADEMY · TRAINING</div><h2 id="trainingCameraTitle">Record your practice</h2>
+  <p id="trainingCameraStatus" class="muted" style="font-size:12px">Requesting camera permission…</p>
+  <video id="trainingLivePreview" autoplay playsinline muted></video>
+  <video id="trainingPlayback" controls playsinline style="display:none"></video>
+  <div class="training-controls">
+   <button class="btn" id="startTrainingRecordBtn" onclick="beginTrainingRecording()" disabled>● Start Recording</button>
+   <button class="btn secondary" id="stopTrainingRecordBtn" onclick="finishTrainingRecording()" disabled>■ Stop & Save</button>
+   <button class="btn secondary" onclick="closeTrainingCamera(false)">Cancel</button>
+  </div>
+ </div>
+</div>
+
+<script>
+let currentUser="",currentLevel=1,totalXP=0,unlockedRecipes=100;
+const recipes = [
+ {name:'Truffle Mushroom Risotto',cuisine:'Italian · Main Course',time:'40 mins',prep:'10 min',cook:'30 min',total:'40 min',serves:'2',level:'Intermediate',image:'https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=1000&q=88',videoId:'PhKN9hnXLnY',videoTitle:'Truffle Mushroom Risotto · Good Eats 101',ingredients:['Arborio rice — 150 g','Mushrooms — 150 g, sliced','Vegetable stock — 700 ml, warm','Onion or shallot — ½, finely chopped','Garlic — 1 clove, minced','Butter — 25 g','Olive oil — 1 tbsp','Parmesan — 30 g, grated','Salt & black pepper — to taste'],steps:[['00–05 min','Warm the vegetable stock in a separate pan. Keep it gently hot throughout cooking.'],['05–10 min','Sauté onion and garlic in olive oil and half the butter until soft. Add mushrooms and cook until lightly golden.'],['10–12 min','Add Arborio rice. Stir for 1–2 minutes until the grains look lightly translucent at the edges.'],['12–28 min','Add warm stock one ladle at a time, stirring often. Wait until most liquid is absorbed before adding more.'],['28–32 min','Taste the rice. It should be tender with a slight bite. Stir in Parmesan and remaining butter.'],['32–40 min','Rest for 2 minutes, adjust seasoning and plate while creamy.']],serving:'Serve immediately in a warm shallow bowl. Finish with Parmesan shavings, herbs and a light drizzle of olive oil.',notes:'Keep the stock warm and add it gradually. Risotto should flow softly on the plate, not sit like a firm mound.'},
+ {name:'Garden Avocado Salad',cuisine:'Modern · Healthy',time:'15 mins',prep:'15 min',cook:'0 min',total:'15 min',serves:'2',level:'Beginner',image:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=88',videoQuery:'avocado garden salad recipe step by step',ingredients:['Ripe avocado — 1 large','Mixed salad leaves — 100 g','Cucumber — ½, sliced','Cherry tomatoes — 8, halved','Extra virgin olive oil — 2 tbsp','Lemon juice — 1 tbsp','Toasted seeds — 1 tbsp','Sea salt & cracked pepper — to taste'],steps:[['00–03 min','Wash and dry the salad leaves thoroughly. Keep them chilled and crisp.'],['03–07 min','Slice the avocado and cucumber. Halve the cherry tomatoes.'],['07–10 min','Whisk olive oil, lemon juice, salt and pepper to make the dressing.'],['10–13 min','Toss the leaves and vegetables gently with the dressing just before serving.'],['13–15 min','Finish with toasted seeds and plate immediately.']],serving:'Plate in a chilled bowl. Arrange avocado slices on top and finish with toasted seeds and fresh microgreens.',notes:'Dress the salad just before serving so the leaves stay crisp. Add avocado at the end to keep its shape.'},
+ {name:'Classic Margherita Pizza',cuisine:'Italian · Oven Baked',time:'30 mins*',prep:'15 min',cook:'10–15 min',total:'30 min*',serves:'1 pizza',level:'Intermediate',image:'https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=88',videoQuery:'classic margherita pizza recipe Food Network video',ingredients:['Prepared pizza dough — 250 g','Tomato passata — 80 ml','Fresh mozzarella — 100–120 g','Fresh basil — 8 leaves','Extra virgin olive oil — 1 tbsp','Fine salt — a pinch','Flour or semolina — for dusting'],steps:[['00–05 min','Preheat oven to its highest temperature with a pizza tray or stone inside.'],['05–10 min','Stretch the dough gently into a round. Dust the peel or tray lightly with flour.'],['10–13 min','Spread a thin layer of passata, leaving a small border. Add torn mozzarella evenly.'],['13–25 min','Bake until the crust is puffed and golden and the cheese is bubbling. Time depends on oven heat.'],['25–30 min','Add basil, olive oil and a pinch of salt. Rest briefly, slice and serve.']],serving:'Serve hot, sliced, with fresh basil and a little extra virgin olive oil.',notes:'*Total time excludes dough fermentation if making dough from scratch. Avoid overloading the pizza with sauce or cheese.'},
+ {name:'Silky Tomato Basil Soup',cuisine:'European · Starter',time:'30 mins',prep:'10 min',cook:'20 min',total:'30 min',serves:'3',level:'Beginner',image:'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1000&q=88',videoQuery:'tomato basil soup recipe video tutorial',ingredients:['Ripe tomatoes — 600 g, chopped','Onion — 1 small, chopped','Garlic — 2 cloves, minced','Vegetable stock — 500 ml','Olive oil — 1 tbsp','Fresh basil — 10 leaves','Cream — 60 ml (optional)','Salt & black pepper — to taste'],steps:[['00–04 min','Heat olive oil in a saucepan. Sauté onion until soft, then add garlic for 30 seconds.'],['04–10 min','Add chopped tomatoes and cook until they soften and release their juices.'],['10–23 min','Pour in vegetable stock. Simmer gently for 12–15 minutes.'],['23–27 min','Add basil, then blend carefully until smooth.'],['27–30 min','Season to taste. Stir in cream if using and warm gently without boiling.']],serving:'Serve in a warm bowl with basil leaves, cracked pepper and toasted sourdough.',notes:'If blending hot soup, follow your blender’s hot-liquid instructions and blend in small batches to avoid splashes.'},
+ {name:'Crispy Herb Roast Chicken',cuisine:'Western · Signature',time:'70 mins',prep:'15 min',cook:'55 min',total:'70 min',serves:'4',level:'Intermediate',image:'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=88',videoQuery:'herb roast chicken recipe step by step video',ingredients:['Chicken portions — 4 (about 800 g total)','Olive oil — 2 tbsp','Paprika — 1 tsp','Dried mixed herbs — 1 tsp','Garlic — 3 cloves, crushed','Lemon — ½','Salt & black pepper — to taste','Seasonal vegetables — 300 g'],steps:[['00–10 min','Preheat oven to 200°C. Pat chicken dry with paper towel and prepare the vegetables.'],['10–15 min','Mix olive oil, paprika, herbs, garlic, salt and pepper. Coat chicken evenly.'],['15–50 min','Arrange chicken and vegetables in a roasting dish. Roast until cooked through.'],['50–55 min','Check the thickest part reaches 74°C using a food thermometer. Continue cooking if needed.'],['55–70 min','Rest for 5–10 minutes, then serve with pan juices and lemon.']],serving:'Serve with roasted seasonal vegetables, lemon wedges and pan juices.',notes:'Cooking time varies with the size and cut of chicken. Use a food thermometer; do not rely on colour alone.'},
+ {name:'Berry Breakfast Pancakes',cuisine:'Breakfast · Brunch',time:'20 mins',prep:'8 min',cook:'12 min',total:'20 min',serves:'2 (6 pancakes)',level:'Beginner',image:'https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1000&q=88',videoQuery:'fluffy berry breakfast pancakes recipe video',ingredients:['All-purpose flour — 125 g','Milk — 180 ml','Egg — 1','Sugar — 1 tbsp','Baking powder — 1 tsp','Melted butter — 1 tbsp','Fresh berries — 100 g','Maple syrup — 2 tbsp'],steps:[['00–03 min','Whisk flour, sugar and baking powder in a bowl.'],['03–06 min','In another bowl, whisk milk, egg and melted butter.'],['06–08 min','Combine wet and dry ingredients gently. A few small lumps are fine.'],['08–18 min','Cook small portions on a lightly greased pan over medium-low heat. Flip when bubbles appear and edges look set.'],['18–20 min','Stack pancakes and add berries and maple syrup.']],serving:'Stack pancakes and top with fresh berries, maple syrup and a light dusting of icing sugar.',notes:'Do not overmix the batter; overmixing can make pancakes dense. Keep the pan at medium-low heat.'},
+ {name:'Spiced Coconut Lentil Curry',cuisine:'South Asian · Vegetarian',time:'35 mins',prep:'10 min',cook:'25 min',total:'35 min',serves:'3–4',level:'Beginner',image:'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1000&q=88',videoQuery:'creamy coconut lentil curry recipe video',ingredients:['Red lentils — 200 g, rinsed','Onion — 1 medium, chopped','Tomato — 1 medium, chopped','Coconut milk — 200 ml','Water or vegetable stock — 500 ml','Curry powder — 1 tbsp','Ginger — 1 tsp, grated','Garlic — 2 cloves, minced','Coriander — 2 tbsp, chopped','Salt — to taste'],steps:[['00–05 min','Rinse lentils until the water runs mostly clear. Prepare onion, tomato, ginger and garlic.'],['05–10 min','Sauté onion, ginger and garlic until fragrant. Stir in curry powder.'],['10–13 min','Add tomato and cook until softened.'],['13–32 min','Add lentils, coconut milk and stock. Simmer gently, stirring occasionally, until lentils are soft. Add a splash of water if too thick.'],['32–35 min','Season to taste and finish with chopped coriander.']],serving:'Serve hot with steamed rice or flatbread and fresh coriander.',notes:'Stir occasionally to prevent lentils sticking to the base. Add extra water for a looser consistency.'},
+ {name:'Dark Chocolate Lava Cake',cuisine:'Dessert · Patisserie',time:'22 mins',prep:'12 min',cook:'10 min',total:'22 min',serves:'4',level:'Intermediate',image:'https://images.unsplash.com/photo-1617305855058-336d24456869?auto=format&fit=crop&w=1000&q=88',videoId:'Skk29cRRKsw',videoTitle:'Chocolate Lava Cake Recipe in Tamil · Madras Samayal',ingredients:['Dark chocolate — 100 g','Unsalted butter — 100 g','Eggs — 2','Egg yolks — 2','Caster sugar — 50 g','Plain flour — 30 g','Butter & cocoa — for moulds','Vanilla — ½ tsp (optional)'],steps:[['00–04 min','Preheat oven to 200°C. Grease four ramekins with butter and dust lightly with cocoa.'],['04–08 min','Melt chocolate and butter gently. Allow the mixture to cool slightly.'],['08–12 min','Whisk eggs, yolks and sugar until pale and slightly thick. Fold in the chocolate mixture.'],['12–14 min','Sift in flour and fold just until combined. Divide between prepared ramekins.'],['14–22 min','Bake for about 8–10 minutes, until edges are set and centres remain soft. Rest for 1 minute, then turn out carefully.']],serving:'Serve warm with berries and vanilla ice cream. Dust lightly with cocoa or icing sugar.',notes:'Oven temperatures vary. Test one cake first if possible; a little extra baking can set the centre. Handle hot ramekins with oven mitts.'}
+ ];
+// 4,000-item catalogue: 200 levels × 20 recipes. Every 5 levels release the next 100 recipes.
+const recipeBases = [
+ ['South Indian','Rice & Grains','Sambar Rice'],['South Indian','Breakfast','Masala Dosa'],['South Indian','Curries','Vegetable Kurma'],['South Indian','Snacks','Medu Vada'],
+ ['North Indian','Curries','Paneer Masala'],['North Indian','Breads','Butter Naan'],['North Indian','Rice & Grains','Jeera Pulao'],['North Indian','Snacks','Aloo Tikki'],
+ ['Italian','Pasta','Creamy Herb Pasta'],['Italian','Pizza','Garden Vegetable Pizza'],['Italian','Soup','Rustic Tomato Soup'],['Italian','Dessert','Vanilla Panna Cotta'],
+ ['Chinese','Noodles','Stir-fried Noodles'],['Chinese','Rice','Vegetable Fried Rice'],['Chinese','Starter','Crispy Vegetable Rolls'],['Chinese','Soup','Ginger Sweet Corn Soup'],
+ ['Japanese','Noodles','Miso Ramen'],['Japanese','Rice','Teriyaki Rice Bowl'],['Japanese','Starter','Vegetable Tempura'],['Japanese','Dessert','Matcha Pudding'],
+ ['Mexican','Tacos','Bean Tacos'],['Mexican','Rice','Mexican Rice Bowl'],['Mexican','Starter','Corn Salsa'],['Mexican','Dessert','Cinnamon Churros'],
+ ['French','Bakery','Herb Focaccia'],['French','Soup','French Onion Soup'],['French','Main Course','Vegetable Ratatouille'],['French','Dessert','Fruit Tart'],
+ ['Mediterranean','Salad','Chickpea Salad'],['Mediterranean','Grill','Herb Grilled Vegetables'],['Mediterranean','Dip','Hummus Plate'],['Mediterranean','Main Course','Lemon Couscous'],
+ ['Bakery','Bread','Soft Dinner Rolls'],['Bakery','Pastry','Chocolate Danish'],['Bakery','Cake','Citrus Tea Cake'],['Bakery','Cookies','Oatmeal Cookies'],
+ ['Global','Seafood','Lemon Pepper Fish'],['Global','Poultry','Herb Roast Chicken'],['Global','Vegetarian','Stuffed Bell Peppers'],['Global','Dessert','Caramel Custard']
+];
+const recipeMethods = [
+ 'Prepare and measure all ingredients. Heat a suitable pan over medium heat and add the cooking fat or liquid specified. Cook the aromatics until fragrant.',
+ 'Add the main ingredients in batches. Stir gently so the pieces cook evenly; add a little water or stock if the pan becomes dry.',
+ 'Add the seasoning and simmer or cook until the ingredients are tender and the flavours are balanced. Check doneness before serving.',
+ 'Taste and adjust seasoning. Finish with the listed garnish, rest briefly if needed, and serve warm using a clean plate.'
+];
+const ingredientSets = [
+ ['Main ingredient — 250 g','Onion — 1 small, chopped','Tomato — 1 medium, chopped','Garlic — 2 cloves, minced','Cooking oil — 1 tbsp','Ground spices — 1 tsp','Water or stock — as needed','Salt — to taste','Fresh herbs — for garnish'],
+ ['Main ingredient — 200 g','Seasonal vegetables — 150 g','Ginger — 1 tsp, grated','Garlic — 2 cloves','Butter or oil — 1 tbsp','Milk or stock — 150 ml','Black pepper — ½ tsp','Salt — to taste'],
+ ['Flour or grain — 200 g','Fresh produce — 150 g','Lemon juice — 1 tbsp','Olive oil — 1 tbsp','Herbs — 1 tbsp, chopped','Spice blend — 1 tsp','Water — as required','Salt — to taste'],
+ ['Rice or pasta — 200 g','Mixed vegetables — 150 g','Onion — ½, sliced','Garlic — 2 cloves','Sauce or stock — 150 ml','Cooking oil — 1 tbsp','Seasoning — to taste','Fresh coriander — for garnish']
+];
+const generatedRecipes = [];
+const usedRecipeNames = new Set(recipes.map(r=>r.name.toLowerCase()));
+for(let i=0;i<3992;i++){
+ const base=recipeBases[i%recipeBases.length], levelNo=Math.floor((i+8)/20)+1;
+ let star= levelNo<=50 ? 1 : levelNo<=100 ? (levelNo%2===0?2:3) : (levelNo<=150?4:5);
+ const suffixes=['Classic','Homestyle','Chef Special','Quick','Aromatic','Seasonal','Traditional','Modern','Garden','Signature','Golden','Rustic','Spiced','Fresh','Deluxe','Family Style'];
+ let name=`${suffixes[Math.floor(i/recipeBases.length)%suffixes.length]} ${base[2]} ${String(i+9).padStart(4,'0')}`;
+ while(usedRecipeNames.has(name.toLowerCase())) name+=' Edition';
+ usedRecipeNames.add(name.toLowerCase());
+ const prep=8+(i%13), cook=12+(i%34), image=recipes[i%recipes.length].image;
+ const ingredients=ingredientSets[i%ingredientSets.length].slice();
+ const steps=recipeMethods.map((m,j)=>[`${j*5+5}–${j*5+10} min`,m]);
+ generatedRecipes.push({name,cuisine:`${base[0]} · ${base[1]}`,time:`${prep+cook} mins`,prep:`${prep} min`,cook:`${cook} min`,total:`${prep+cook} min`,serves:'2–3',level:levelNo<=50?'Beginner':levelNo<=100?'Intermediate':levelNo<=150?'Advanced':'Expert',levelNo,stars:star,image,videoQuery:`${base[2]} ${base[0]} recipe tutorial`,ingredients,steps,serving:`Serve fresh on a clean plate as a ${base[1].toLowerCase()} preparation. Add fresh herbs or the garnish of your choice.`,notes:'This catalogue entry is a structured starter recipe template. Adjust seasoning and cooking time to the ingredient size and your equipment.'});
+}
+// Keep the eight hand-written recipes, then add 3,992 generated catalogue entries.
+recipes.forEach((r,i)=>{r.levelNo=Math.floor(i/20)+1;r.stars=r.levelNo<=50?1:r.levelNo<=100?(r.levelNo%2===0?2:3):(r.levelNo<=150?4:5)});
+recipes.push(...generatedRecipes);
+
+const recipeImages=recipes.map(r=>r.image);
+const followingChefs=[{name:'Chef Alex',avatar:'https://images.unsplash.com/photo-1534528741775-53994a69daeb'},{name:'Chef Priya',avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9'}];
+window.addEventListener('DOMContentLoaded',()=>{try{const u=localStorage.getItem('chefUserName');if(u){currentUser=u;document.getElementById('profileName').innerText=u;showApp()}}catch(e){console.warn('Local storage is unavailable',e)}});
+function showApp(){document.getElementById('loginScreen').style.display='none';document.getElementById('mainApp').style.display='block';document.getElementById('bottomNav').style.display='flex';updateLevelDisplay();renderFollowingList()}
+function handleManualLogin(){const f=document.getElementById('firstName').value.trim(),l=document.getElementById('lastName').value.trim();if(!f){alert('Please enter your first name.');return}currentUser=(f+(l?' '+l:'')).slice(0,60);try{localStorage.setItem('chefUserName',currentUser)}catch(e){alert('Browser storage is unavailable. You can continue for this session only.')}document.getElementById('profileName').innerText=currentUser;document.getElementById('profilePhoneDisplay').innerText='Local demo profile · not an online account';showApp()}
+function handleGoogleLogin(){alert('Google sign-in is not connected yet. This button will work after a secure Google OAuth client and backend are configured. No Google account has been verified.');}
+function stopActiveCamera(){const v=document.getElementById('webcam');if(v&&v.srcObject){v.srcObject.getTracks().forEach(t=>t.stop());v.srcObject=null}const s=document.getElementById('cameraStatus');if(s)s.innerText='Camera is off.'}
+let trainingStream=null,trainingRecorder=null,trainingChunks=[],activeTrainingTask='Training practice',trainingDb=null;
+function openTrainingDB(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window)){reject(new Error('This browser does not support local video storage.'));return}const req=indexedDB.open('BestChefAcademyTrainingVideos',1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('videos'))db.createObjectStore('videos',{keyPath:'id',autoIncrement:true})};req.onsuccess=()=>{trainingDb=req.result;resolve(trainingDb)};req.onerror=()=>reject(req.error||new Error('Could not open video library'))})}
+function saveTrainingVideo(blob,title){return openTrainingDB().then(db=>new Promise((resolve,reject)=>{const tx=db.transaction('videos','readwrite');tx.objectStore('videos').add({title,createdAt:new Date().toISOString(),blob,mimeType:blob.type});tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('Video save failed'))}))}
+async function openTrainingCamera(taskTitle){activeTrainingTask=taskTitle||'Training practice';const modal=document.getElementById('trainingCameraModal'),preview=document.getElementById('trainingLivePreview'),playback=document.getElementById('trainingPlayback'),status=document.getElementById('trainingCameraStatus');document.getElementById('trainingCameraTitle').textContent=activeTrainingTask;modal.classList.add('open');playback.style.display='none';preview.style.display='block';document.getElementById('startTrainingRecordBtn').disabled=true;document.getElementById('stopTrainingRecordBtn').disabled=true;status.textContent='Requesting camera permission…';try{if(!window.isSecureContext||!navigator.mediaDevices?.getUserMedia)throw new Error('Camera requires HTTPS and a supported browser. Open the academy using its https:// website address.');trainingStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:true});preview.srcObject=trainingStream;await preview.play();document.getElementById('startTrainingRecordBtn').disabled=false;status.textContent='Camera ready. Press Start Recording when you are ready.'}catch(err){status.textContent='Camera could not start: '+(err.message||'Permission denied');alert('Camera could not open. Allow Camera and Microphone permission for this website in Chrome settings, then try again. Make sure the address starts with https://.');closeTrainingCamera(false)}}
+function beginTrainingRecording(){if(!trainingStream)return;try{const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t));if(!window.MediaRecorder)throw new Error('Video recording is not supported in this browser.');trainingChunks=[];trainingRecorder=new MediaRecorder(trainingStream,mime?{mimeType:mime}:undefined);trainingRecorder.ondataavailable=e=>{if(e.data&&e.data.size)trainingChunks.push(e.data)};trainingRecorder.onstop=async()=>{const blob=new Blob(trainingChunks,{type:trainingRecorder.mimeType||'video/webm'});if(blob.size){try{await saveTrainingVideo(blob,activeTrainingTask);document.getElementById('trainingCameraStatus').textContent='Saved to your Library on this device.';renderTrainingLibrary();totalXP+=50;updateLevelDisplay();alert('Training video saved to Library. +50 XP');}catch(e){document.getElementById('trainingCameraStatus').textContent='Could not save video: '+e.message;alert('The video could not be saved. Check available device storage.')}}};trainingRecorder.start(1000);document.getElementById('startTrainingRecordBtn').disabled=true;document.getElementById('stopTrainingRecordBtn').disabled=false;document.getElementById('trainingCameraStatus').innerHTML='<span class="training-record-dot"></span>Recording…'}catch(e){alert(e.message||'Could not start recording.')}}
+function finishTrainingRecording(){if(trainingRecorder&&trainingRecorder.state==='recording'){trainingRecorder.stop();document.getElementById('stopTrainingRecordBtn').disabled=true;document.getElementById('trainingCameraStatus').textContent='Finishing and saving your video…'}}
+function closeTrainingCamera(saved){if(trainingRecorder&&trainingRecorder.state==='recording')trainingRecorder.stop();if(trainingStream){trainingStream.getTracks().forEach(t=>t.stop());trainingStream=null}const m=document.getElementById('trainingCameraModal');if(m)m.classList.remove('open');const v=document.getElementById('trainingLivePreview');if(v)v.srcObject=null;document.getElementById('startTrainingRecordBtn').disabled=true;document.getElementById('stopTrainingRecordBtn').disabled=true}
+async function renderTrainingLibrary(){const host=document.getElementById('trainingLibraryList');if(!host)return;host.innerHTML='<p class="muted">Loading saved videos…</p>';try{const db=await openTrainingDB();const rows=await new Promise((resolve,reject)=>{const req=db.transaction('videos','readonly').objectStore('videos').getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)});host.innerHTML='';if(!rows.length){host.innerHTML='<p class="muted">No training videos saved yet. Record a task to see it here.</p>';return}rows.sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).forEach(row=>{const card=document.createElement('div');card.className='library-video';const title=document.createElement('b');title.textContent=row.title;const meta=document.createElement('div');meta.className='library-meta';meta.textContent=new Date(row.createdAt).toLocaleString()+' · '+Math.round(row.blob.size/1024)+' KB';const video=document.createElement('video');video.controls=true;video.playsInline=true;video.src=URL.createObjectURL(row.blob);const del=document.createElement('button');del.className='btn secondary';del.textContent='Delete video';del.onclick=()=>deleteTrainingVideo(row.id);card.append(title,meta,video,del);host.appendChild(card)})}catch(e){host.innerHTML='<p class="muted">Video Library is unavailable: '+e.message+'</p>'}}
+async function deleteTrainingVideo(id){if(!confirm('Delete this saved training video from this device?'))return;const db=await openTrainingDB();await new Promise((resolve,reject)=>{const tx=db.transaction('videos','readwrite');tx.objectStore('videos').delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});renderTrainingLibrary()}
+function deleteLocalAccountData(){if(!confirm('Delete this app’s locally stored profile and preferences from this browser? This cannot delete data stored on a server.'))return;stopActiveCamera();try{['chefUserName','chefUserPhone','bcaLanguage'].forEach(k=>localStorage.removeItem(k))}catch(e){}alert('Local profile data cleared from this browser.');location.reload()}
+function showPrivacyNotice(){alert('PRIVACY NOTICE\n\nThis version is a front-end demo. Your display name and language preference may be stored in this browser using local storage. Phone numbers are not saved by this version. Google sign-in, cloud accounts, uploads, chat sync and server-side deletion are not connected. Before public release, publish a complete privacy policy and connect secure account, data access and deletion services.');}
+function handleLogout(){stopActiveCamera();try{localStorage.removeItem('chefUserName')}catch(e){}location.reload()}
+function switchTab(id,btn){document.querySelectorAll('.section-content').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');if(btn)btn.classList.add('active');if(id==='library')renderTrainingLibrary();window.scrollTo({top:0,behavior:'smooth'})}
+function toggleUploadMenu(){let m=document.getElementById('uploadMenuCard');m.style.display=m.style.display==='block'?'none':'block'}
+function openReelUploader(){alert('Video upload is a demo-only feature. Online uploads require a secure backend, file validation, moderation and storage.')}
+function openStoryUploader(){alert('Story upload is a demo-only feature. Online uploads require a secure backend, file validation, moderation and storage.')}
+function startCamera(){openTrainingCamera('Cooking practice clip')}
+function addNewCustomTask(){let t=document.getElementById('customTimeInput').value,n=document.getElementById('customTaskInput').value.trim();if(!n){alert('Please enter a task name!');return}let d=document.createElement('div');d.className='task-item';let c=document.createElement('input');c.type='checkbox';c.onclick=()=>verifyAndCheck(c);let info=document.createElement('div');info.className='task-info';let title=document.createElement('div');title.className='task-title';title.textContent=(t||'08:00')+' - '+n;let sub=document.createElement('div');sub.className='task-time';sub.textContent='Custom Student Masterclass Task';info.append(title,sub);d.append(c,info);document.getElementById('taskListContainer').appendChild(d);document.getElementById('customTaskInput').value='';document.getElementById('customTimeInput').value='';alert('Your new task has been added!')}
+function renderFollowingList(){let list=document.getElementById('followingListContainer');list.innerHTML='';followingChefs.forEach(ch=>{let d=document.createElement('div');d.className='chat-list-item';d.innerHTML=`<img src="${ch.avatar}" class="avatar"><div><b>${ch.name}</b><div class="muted" style="font-size:11px">Tap to message directly</div></div>`;d.onclick=()=>openChat(ch.name);list.appendChild(d)})}
+function openChat(n){document.getElementById('chatListView').style.display='none';document.getElementById('activeChatView').style.display='block';document.getElementById('chatWithTitle').innerText='✉ '+n}
+function openGroupChat(){document.getElementById('chatListView').style.display='none';document.getElementById('activeChatView').style.display='block';document.getElementById('chatWithTitle').innerText='👥 Masterclass Group'}
+function backToChatList(){document.getElementById('activeChatView').style.display='none';document.getElementById('chatListView').style.display='block'}
+function sendDMMessage(){let i=document.getElementById('dmUserInput'),b=document.getElementById('dmChatBox');if(!i.value.trim())return;let m=document.createElement('div');m.textContent='You: '+i.value;b.appendChild(m);i.value='';setTimeout(()=>{let r=document.createElement('div');r.textContent='Chef: Great job! 👍';b.appendChild(r);b.scrollTop=b.scrollHeight},500)}
+function updateLevelDisplay(){
+ currentLevel=Math.max(1,Math.min(200,Math.floor(totalXP/100)+1));
+ // 100 recipes are released at a time: one batch for every five levels.
+ unlockedRecipes=Math.min(4000,Math.max(100,Math.floor((currentLevel-1)/5+1)*100));
+ document.getElementById('xpVal').innerText=totalXP+' XP';
+ document.getElementById('levelVal').innerText='Level '+currentLevel;
+ document.getElementById('recipeUnlocked').innerText=unlockedRecipes+' / 4,000';
+ if(currentLevel>=200){document.getElementById('certCard').style.display='block';document.getElementById('certText').innerText=`Awarded to Chef ${currentUser} for completing all 200 Levels & 4,000 Recipes!`;}
+ renderRecipes();
+}
+function verifyAndCheck(c){if(c.checked){c.checked=false;const task=c.closest('.task-item')?.querySelector('.task-title')?.textContent||'Daily training task';if(confirm('Would you like to record yourself completing this task?')){openTrainingCamera(task)}else{totalXP+=50;updateLevelDisplay();}}}
+function initRecipeFilters(){
+ const select=document.getElementById('recipeLevelFilter');
+ if(select&&select.options.length<=1){for(let n=1;n<=200;n++){const o=document.createElement('option');o.value=String(n);o.textContent='Level '+n;select.appendChild(o);}}
+}
+function renderRecipes(){
+ let g=document.getElementById('recipeGridContainer');if(!g)return;g.innerHTML='';
+ initRecipeFilters();
+ let q=(document.getElementById('recipeSearch')?.value||'').toLowerCase().trim();
+ let lf=document.getElementById('recipeLevelFilter')?.value||'all';
+ let sf=document.getElementById('recipeStarFilter')?.value||'all';
+ let visible=0;
+ recipes.forEach((r,index)=>{
+  const level=r.levelNo||1, stars=r.stars||1, unlocked=index<unlockedRecipes;
+  if(!unlocked)return;
+  if(lf!=='all'&&level!==Number(lf))return;
+  if(sf!=='all'&&stars!==Number(sf))return;
+  if(q&&!(`${r.name} ${r.cuisine} ${r.ingredients.join(' ')}`.toLowerCase().includes(q)))return;
+  visible++;
+  let d=document.createElement('div');d.className='recipe-card';
+  d.innerHTML=`<img src="${r.image}" alt="${r.name}" loading="lazy"><div class="recipe-title">${r.name}<span class="recipe-subtitle">${r.cuisine} · Level ${level} · ${'★'.repeat(stars)} · ${r.total}</span></div>`;
+  d.onclick=()=>openRecipeDetail(index+1);g.appendChild(d);
+ });
+ const status=document.getElementById('recipeFeedStatus');
+ if(status)status.textContent=`Showing ${visible} matching unlocked recipes · ${unlockedRecipes} of 4,000 released · Level ${currentLevel} of 200`;
+ if(!g.children.length)g.innerHTML='<p class="muted" style="padding:20px">No unlocked recipes match this search. Complete more levels to unlock the next recipe batch.</p>';
+}
+function openRecipeDetail(id){
+ let r=recipes[(id-1)%recipes.length];
+ // Add a browser-history entry so Android/browser Back closes the recipe detail.
+ if(!document.getElementById('recipeDetailView').dataset.historyOpen){history.pushState({recipeDetail:true},'','#recipe-detail');document.getElementById('recipeDetailView').dataset.historyOpen='1';}
+ document.getElementById('recipeListView').style.display='none';document.getElementById('recipeDetailView').style.display='block';
+ document.getElementById('detailTitle').innerText=r.name;
+ document.getElementById('detailCuisine').innerText=r.cuisine;
+ document.getElementById('detailImage').src=r.image;
+ document.getElementById('detailImage').alt=r.name;
+ document.getElementById('detailPrep').innerText=r.prep;
+ document.getElementById('detailCook').innerText=r.cook;
+ document.getElementById('detailTotal').innerText=r.total;
+ document.getElementById('detailServes').innerText=r.serves;
+ document.getElementById('detailLevel').innerText=`${r.level} · Level ${r.levelNo||1} · ${'★'.repeat(r.stars||1)}`;
+ document.getElementById('detailIngredients').innerHTML=r.ingredients.map(x=>`<div class="ingredient-item">${x}</div>`).join('');
+ document.getElementById('detailSteps').innerHTML=r.steps.map(x=>`<div class="method-step"><div class="method-time">${x[0]}</div><div class="method-copy">${x[1]}</div></div>`).join('');
+ document.getElementById('detailServing').innerText=r.serving;
+ document.getElementById('detailNotes').innerText=r.notes;
+ let video=document.getElementById('detailVideo');
+ if(r.videoId){
+  video.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${r.videoId}" title="${r.videoTitle||r.name+' recipe video'}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="recipe-note">${r.videoTitle||'Video lesson'} · Video by its original creator</p>`;
+ }else{
+  let query=encodeURIComponent(r.videoQuery||r.name+' recipe video');
+  video.innerHTML=`<div style="padding:20px;text-align:center;border:1px dashed #6b5736;border-radius:14px;background:#101713"><div style="font-size:28px;margin-bottom:8px">▶</div><p style="color:#f4dfad;font-weight:700;margin-bottom:12px">Watch a step-by-step video lesson</p><a class="video-search-link" href="https://www.youtube.com/results?search_query=${query}" target="_blank" rel="noopener">▶ Find recipe video</a></div>`;
+ }
+ document.getElementById('recipeDetailView').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closeRecipeDetail(){
+ const detail=document.getElementById('recipeDetailView');
+ detail.style.display='none';
+ detail.dataset.historyOpen='';
+ document.getElementById('recipeListView').style.display='block';
+ document.getElementById('recipeListView').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function backToRecipeList(){
+ // Compatibility helper: use the phone/browser Back stack when available.
+ if(document.getElementById('recipeDetailView').dataset.historyOpen){history.back();}
+ else closeRecipeDetail();
+}
+window.addEventListener('popstate',()=>{
+ const detail=document.getElementById('recipeDetailView');
+ if(detail && detail.style.display==='block') closeRecipeDetail();
+});
+function updateProfilePic(e){let f=e.target.files[0];if(f){let r=new FileReader();r.onload=x=>document.getElementById('profileImagePreview').src=x.target.result;r.readAsDataURL(f)}}
+function changeWallpaper(e){let f=e.target.files[0];if(f){let r=new FileReader();r.onload=x=>document.body.style.backgroundImage=`linear-gradient(#090909d9,#090909e8),url('${x.target.result}')`;r.readAsDataURL(f)}}
+function sendToAI(){let i=document.getElementById('userInput'),b=document.getElementById('aiChatBox');if(!i.value.trim())return;let m=document.createElement('div');m.textContent='You: '+i.value;b.appendChild(m);i.value='';setTimeout(()=>{let r=document.createElement('div');r.textContent='AI: This recipe looks great! Remember to use salt in moderation.';b.appendChild(r);b.scrollTop=b.scrollHeight},500)}
+
+/* App language selector: translates the core navigation and common controls. */
+const APP_I18N={
+ en:{'Language':'Language','Home':'Home','Recipes':'Recipes','Feed':'Feed','Clips':'Clips','Chat':'Chat','Profile':'Profile','Academy':'Academy','Community':'Community','Messages':'Messages','Welcome to the academy':'Welcome to the academy','Begin Your Culinary Journey':'Begin Your Culinary Journey','Enter your details to sign in.':'Enter your details to sign in.','First Name*':'First Name*','Last Name*':'Last Name*','Phone Number*':'Phone Number*','Login / Register →':'Login / Register →','Continue with Google':'Continue with Google','Explore Recipes →':'Explore Recipes →','Signature Recipe Collection':'Signature Recipe Collection','Community Feed':'Community Feed','Publish Post':'Publish Post','Share Clip':'Share Clip','Clips Feed':'Clips Feed','Open Camera':'Open Camera','AI Kitchen Concierge':'AI Kitchen Concierge','Edit Profile':'Edit Profile','Logout':'Logout','Search friends or groups...':'Search friends or groups...'},
+ ta:{'Language':'மொழி','Home':'முகப்பு','Recipes':'சமையல் குறிப்புகள்','Feed':'பதிவுகள்','Clips':'கிளிப்புகள்','Chat':'அரட்டை','Profile':'சுயவிவரம்','Academy':'அகாடமி','Community':'சமூகம்','Messages':'செய்திகள்','Welcome to the academy':'அகாடமிக்கு வரவேற்கிறோம்','Begin Your Culinary Journey':'உங்கள் சமையல் பயணத்தைத் தொடங்குங்கள்','Enter your details to sign in.':'உள்நுழைய உங்கள் விவரங்களை உள்ளிடுங்கள்.','First Name*':'முதல் பெயர்*','Last Name*':'கடைசி பெயர்*','Phone Number*':'தொலைபேசி எண்*','Login / Register →':'உள்நுழை / பதிவு செய் →','Continue with Google':'Google மூலம் தொடரவும்','Explore Recipes →':'சமையல் குறிப்புகளைப் பார்க்கவும் →','Signature Recipe Collection':'சிறப்பு சமையல் குறிப்புகள்','Community Feed':'சமூகப் பதிவுகள்','Publish Post':'பதிவிடு','Share Clip':'கிளிப்பைப் பகிர்','Clips Feed':'கிளிப்புகள்','Open Camera':'கேமராவைத் திற','AI Kitchen Concierge':'AI சமையல் உதவியாளர்','Edit Profile':'சுயவிவரத்தைத் திருத்து','Logout':'வெளியேறு','Search friends or groups...':'நண்பர்கள் அல்லது குழுக்களைத் தேடுங்கள்...'},
+ hi:{'Language':'भाषा','Home':'होम','Recipes':'रेसिपी','Feed':'फ़ीड','Clips':'क्लिप्स','Chat':'चैट','Profile':'प्रोफ़ाइल','Academy':'अकादमी','Community':'समुदाय','Messages':'संदेश','Welcome to the academy':'अकादमी में आपका स्वागत है','Begin Your Culinary Journey':'अपनी पाक यात्रा शुरू करें','Enter your details to sign in.':'साइन इन करने के लिए अपना विवरण दर्ज करें।','First Name*':'पहला नाम*','Last Name*':'उपनाम*','Phone Number*':'फ़ोन नंबर*','Login / Register →':'लॉगिन / रजिस्टर →','Continue with Google':'Google से जारी रखें','Explore Recipes →':'रेसिपी देखें →','Signature Recipe Collection':'विशेष रेसिपी संग्रह','Community Feed':'कम्युनिटी फ़ीड','Publish Post':'पोस्ट प्रकाशित करें','Share Clip':'क्लिप साझा करें','Clips Feed':'क्लिप फ़ीड','Open Camera':'कैमरा खोलें','AI Kitchen Concierge':'AI किचन सहायक','Edit Profile':'प्रोफ़ाइल संपादित करें','Logout':'लॉगआउट','Search friends or groups...':'दोस्तों या समूहों को खोजें...'},
+ es:{'Language':'Idioma','Home':'Inicio','Recipes':'Recetas','Feed':'Publicaciones','Clips':'Clips','Chat':'Chat','Profile':'Perfil','Academy':'Academia','Community':'Comunidad','Messages':'Mensajes','Welcome to the academy':'Bienvenido a la academia','Begin Your Culinary Journey':'Comienza tu viaje culinario','Enter your details to sign in.':'Introduce tus datos para iniciar sesión.','First Name*':'Nombre*','Last Name*':'Apellido*','Phone Number*':'Número de teléfono*','Login / Register →':'Iniciar sesión / Registrarse →','Continue with Google':'Continuar con Google','Explore Recipes →':'Explorar recetas →','Signature Recipe Collection':'Colección de recetas exclusivas','Community Feed':'Feed de la comunidad','Publish Post':'Publicar','Share Clip':'Compartir clip','Clips Feed':'Feed de clips','Open Camera':'Abrir cámara','AI Kitchen Concierge':'Asistente de cocina IA','Edit Profile':'Editar perfil','Logout':'Cerrar sesión','Search friends or groups...':'Buscar amigos o grupos...'},
+ fr:{'Language':'Langue','Home':'Accueil','Recipes':'Recettes','Feed':'Fil','Clips':'Clips','Chat':'Discussion','Profile':'Profil','Academy':'Académie','Community':'Communauté','Messages':'Messages','Welcome to the academy':'Bienvenue à l’académie','Begin Your Culinary Journey':'Commencez votre parcours culinaire','Enter your details to sign in.':'Saisissez vos informations pour vous connecter.','First Name*':'Prénom*','Last Name*':'Nom*','Phone Number*':'Numéro de téléphone*','Login / Register →':'Connexion / Inscription →','Continue with Google':'Continuer avec Google','Explore Recipes →':'Découvrir les recettes →','Signature Recipe Collection':'Collection de recettes signature','Community Feed':'Fil de la communauté','Publish Post':'Publier','Share Clip':'Partager un clip','Clips Feed':'Fil des clips','Open Camera':'Ouvrir la caméra','AI Kitchen Concierge':'Assistant culinaire IA','Edit Profile':'Modifier le profil','Logout':'Déconnexion','Search friends or groups...':'Rechercher des amis ou des groupes...'},
+ de:{'Language':'Sprache','Home':'Startseite','Recipes':'Rezepte','Feed':'Feed','Clips':'Clips','Chat':'Chat','Profile':'Profil','Academy':'Akademie','Community':'Community','Messages':'Nachrichten','Welcome to the academy':'Willkommen an der Akademie','Begin Your Culinary Journey':'Beginne deine kulinarische Reise','Enter your details to sign in.':'Gib deine Daten ein, um dich anzumelden.','First Name*':'Vorname*','Last Name*':'Nachname*','Phone Number*':'Telefonnummer*','Login / Register →':'Anmelden / Registrieren →','Continue with Google':'Mit Google fortfahren','Explore Recipes →':'Rezepte entdecken →','Signature Recipe Collection':'Ausgewählte Rezeptsammlung','Community Feed':'Community-Feed','Publish Post':'Beitrag veröffentlichen','Share Clip':'Clip teilen','Clips Feed':'Clip-Feed','Open Camera':'Kamera öffnen','AI Kitchen Concierge':'KI-Küchenassistent','Edit Profile':'Profil bearbeiten','Logout':'Abmelden','Search friends or groups...':'Freunde oder Gruppen suchen...'},
+ pt:{'Language':'Idioma','Home':'Início','Recipes':'Receitas','Feed':'Feed','Clips':'Clipes','Chat':'Chat','Profile':'Perfil','Academy':'Academia','Community':'Comunidade','Messages':'Mensagens','Welcome to the academy':'Bem-vindo à academia','Begin Your Culinary Journey':'Comece sua jornada culinária','Enter your details to sign in.':'Insira seus dados para entrar.','First Name*':'Nome*','Last Name*':'Sobrenome*','Phone Number*':'Número de telefone*','Login / Register →':'Entrar / Registrar →','Continue with Google':'Continuar com Google','Explore Recipes →':'Explorar receitas →','Signature Recipe Collection':'Coleção de receitas especiais','Community Feed':'Feed da comunidade','Publish Post':'Publicar postagem','Share Clip':'Compartilhar clipe','Clips Feed':'Feed de clipes','Open Camera':'Abrir câmera','AI Kitchen Concierge':'Assistente de cozinha com IA','Edit Profile':'Editar perfil','Logout':'Sair','Search friends or groups...':'Buscar amigos ou grupos...'},
+ bn:{'Language':'ভাষা','Home':'হোম','Recipes':'রেসিপি','Feed':'ফিড','Clips':'ক্লিপস','Chat':'চ্যাট','Profile':'প্রোফাইল','Academy':'একাডেমি','Community':'কমিউনিটি','Messages':'বার্তা','Welcome to the academy':'একাডেমিতে স্বাগতম','Begin Your Culinary Journey':'আপনার রান্নার যাত্রা শুরু করুন','Enter your details to sign in.':'সাইন ইন করতে আপনার তথ্য লিখুন।','First Name*':'নামের প্রথম অংশ*','Last Name*':'নামের শেষ অংশ*','Phone Number*':'ফোন নম্বর*','Login / Register →':'লগইন / নিবন্ধন →','Continue with Google':'Google দিয়ে চালিয়ে যান','Explore Recipes →':'রেসিপি দেখুন →','Signature Recipe Collection':'বিশেষ রেসিপি সংগ্রহ','Community Feed':'কমিউনিটি ফিড','Publish Post':'পোস্ট প্রকাশ করুন','Share Clip':'ক্লিপ শেয়ার করুন','Clips Feed':'ক্লিপ ফিড','Open Camera':'ক্যামেরা খুলুন','AI Kitchen Concierge':'AI রান্নার সহকারী','Edit Profile':'প্রোফাইল সম্পাদনা','Logout':'লগআউট','Search friends or groups...':'বন্ধু বা গ্রুপ খুঁজুন...'},
+ te:{'Language':'భాష','Home':'హోమ్','Recipes':'వంటకాలు','Feed':'ఫీడ్','Clips':'క్లిప్స్','Chat':'చాట్','Profile':'ప్రొఫైల్','Academy':'అకాడమీ','Community':'కమ్యూనిటీ','Messages':'సందేశాలు','Welcome to the academy':'అకాడమీకి స్వాగతం','Begin Your Culinary Journey':'మీ వంట ప్రయాణాన్ని ప్రారంభించండి','Enter your details to sign in.':'సైన్ ఇన్ చేయడానికి మీ వివరాలను నమోదు చేయండి.','First Name*':'మొదటి పేరు*','Last Name*':'చివరి పేరు*','Phone Number*':'ఫోన్ నంబర్*','Login / Register →':'లాగిన్ / నమోదు →','Continue with Google':'Googleతో కొనసాగించండి','Explore Recipes →':'వంటకాలను చూడండి →','Signature Recipe Collection':'ప్రత్యేక వంటకాల సేకరణ','Community Feed':'కమ్యూనిటీ ఫీడ్','Publish Post':'పోస్ట్ చేయండి','Share Clip':'క్లిప్‌ను షేర్ చేయండి','Clips Feed':'క్లిప్స్ ఫీడ్','Open Camera':'కెమెరా తెరవండి','AI Kitchen Concierge':'AI వంట సహాయకుడు','Edit Profile':'ప్రొఫైల్ సవరించండి','Logout':'లాగ్ అవుట్','Search friends or groups...':'స్నేహితులు లేదా గ్రూపులను వెతకండి...'},
+ ml:{'Language':'ഭാഷ','Home':'ഹോം','Recipes':'പാചകക്കുറിപ്പുകൾ','Feed':'ഫീഡ്','Clips':'ക്ലിപ്പുകൾ','Chat':'ചാറ്റ്','Profile':'പ്രൊഫൈൽ','Academy':'അക്കാദമി','Community':'കമ്മ്യൂണിറ്റി','Messages':'സന്ദേശങ്ങൾ','Welcome to the academy':'അക്കാദമിയിലേക്ക് സ്വാഗതം','Begin Your Culinary Journey':'നിങ്ങളുടെ പാചകയാത്ര ആരംഭിക്കുക','Enter your details to sign in.':'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങളുടെ വിവരങ്ങൾ നൽകുക.','First Name*':'പേര്*','Last Name*':'കുടുംബപ്പേര്*','Phone Number*':'ഫോൺ നമ്പർ*','Login / Register →':'ലോഗിൻ / രജിസ്റ്റർ →','Continue with Google':'Google ഉപയോഗിച്ച് തുടരുക','Explore Recipes →':'പാചകക്കുറിപ്പുകൾ കാണുക →','Signature Recipe Collection':'തിരഞ്ഞെടുത്ത പാചകക്കുറിപ്പുകൾ','Community Feed':'കമ്മ്യൂണിറ്റി ഫീഡ്','Publish Post':'പോസ്റ്റ് പ്രസിദ്ധീകരിക്കുക','Share Clip':'ക്ലിപ്പ് പങ്കിടുക','Clips Feed':'ക്ലിപ്പുകളുടെ ഫീഡ്','Open Camera':'ക്യാമറ തുറക്കുക','AI Kitchen Concierge':'AI പാചക സഹായി','Edit Profile':'പ്രൊഫൈൽ തിരുത്തുക','Logout':'ലോഗ് ഔട്ട്','Search friends or groups...':'സുഹൃത്തുക്കളെയോ ഗ്രൂപ്പുകളെയോ തിരയുക...'},
+ kn:{'Language':'ಭಾಷೆ','Home':'ಮುಖಪುಟ','Recipes':'ಪಾಕವಿಧಾನಗಳು','Feed':'ಫೀಡ್','Clips':'ಕ್ಲಿಪ್‌ಗಳು','Chat':'ಚಾಟ್','Profile':'ಪ್ರೊಫೈಲ್','Academy':'ಅಕಾಡೆಮಿ','Community':'ಸಮುದಾಯ','Messages':'ಸಂದೇಶಗಳು','Welcome to the academy':'ಅಕಾಡೆಮಿಗೆ ಸ್ವಾಗತ','Begin Your Culinary Journey':'ನಿಮ್ಮ ಪಾಕಯಾನವನ್ನು ಪ್ರಾರಂಭಿಸಿ','Enter your details to sign in.':'ಸೈನ್ ಇನ್ ಮಾಡಲು ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ.','First Name*':'ಮೊದಲ ಹೆಸರು*','Last Name*':'ಕೊನೆಯ ಹೆಸರು*','Phone Number*':'ಫೋನ್ ಸಂಖ್ಯೆ*','Login / Register →':'ಲಾಗಿನ್ / ನೋಂದಣಿ →','Continue with Google':'Google ಮೂಲಕ ಮುಂದುವರಿಸಿ','Explore Recipes →':'ಪಾಕವಿಧಾನಗಳನ್ನು ಅನ್ವೇಷಿಸಿ →','Signature Recipe Collection':'ವಿಶೇಷ ಪಾಕವಿಧಾನಗಳ ಸಂಗ್ರಹ','Community Feed':'ಸಮುದಾಯ ಫೀಡ್','Publish Post':'ಪೋಸ್ಟ್ ಪ್ರಕಟಿಸಿ','Share Clip':'ಕ್ಲಿಪ್ ಹಂಚಿಕೊಳ್ಳಿ','Clips Feed':'ಕ್ಲಿಪ್ ಫೀಡ್','Open Camera':'ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ','AI Kitchen Concierge':'AI ಅಡುಗೆ ಸಹಾಯಕ','Edit Profile':'ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ','Logout':'ಲಾಗ್ ಔಟ್','Search friends or groups...':'ಸ್ನೇಹಿತರು ಅಥವಾ ಗುಂಪುಗಳನ್ನು ಹುಡುಕಿ...'},
+ mr:{'Language':'भाषा','Home':'मुख्यपृष्ठ','Recipes':'पाककृती','Feed':'फीड','Clips':'क्लिप्स','Chat':'चॅट','Profile':'प्रोफाइल','Academy':'अकॅडमी','Community':'समुदाय','Messages':'संदेश','Welcome to the academy':'अकॅडमीमध्ये स्वागत आहे','Begin Your Culinary Journey':'तुमचा पाककलेचा प्रवास सुरू करा','Enter your details to sign in.':'साइन इन करण्यासाठी तुमची माहिती भरा.','First Name*':'पहिले नाव*','Last Name*':'आडनाव*','Phone Number*':'फोन नंबर*','Login / Register →':'लॉगिन / नोंदणी →','Continue with Google':'Google सह पुढे जा','Explore Recipes →':'पाककृती पाहा →','Signature Recipe Collection':'निवडक पाककृती संग्रह','Community Feed':'समुदाय फीड','Publish Post':'पोस्ट प्रकाशित करा','Share Clip':'क्लिप शेअर करा','Clips Feed':'क्लिप फीड','Open Camera':'कॅमेरा उघडा','AI Kitchen Concierge':'AI स्वयंपाक सहाय्यक','Edit Profile':'प्रोफाइल संपादित करा','Logout':'लॉगआउट','Search friends or groups...':'मित्र किंवा गट शोधा...'},
+ ar:{'Language':'اللغة','Home':'الرئيسية','Recipes':'الوصفات','Feed':'المنشورات','Clips':'مقاطع','Chat':'الدردشة','Profile':'الملف الشخصي','Academy':'الأكاديمية','Community':'المجتمع','Messages':'الرسائل','Welcome to the academy':'مرحبًا بك في الأكاديمية','Begin Your Culinary Journey':'ابدأ رحلتك في عالم الطهي','Enter your details to sign in.':'أدخل بياناتك لتسجيل الدخول.','First Name*':'الاسم الأول*','Last Name*':'اسم العائلة*','Phone Number*':'رقم الهاتف*','Login / Register →':'تسجيل الدخول / التسجيل →','Continue with Google':'المتابعة باستخدام Google','Explore Recipes →':'استكشف الوصفات →','Signature Recipe Collection':'مجموعة الوصفات المميزة','Community Feed':'منشورات المجتمع','Publish Post':'نشر المنشور','Share Clip':'مشاركة مقطع','Clips Feed':'خلاصة المقاطع','Open Camera':'افتح الكاميرا','AI Kitchen Concierge':'مساعد المطبخ بالذكاء الاصطناعي','Edit Profile':'تعديل الملف الشخصي','Logout':'تسجيل الخروج','Search friends or groups...':'ابحث عن الأصدقاء أو المجموعات...'},
+ zh:{'Language':'语言','Home':'首页','Recipes':'食谱','Feed':'动态','Clips':'短视频','Chat':'聊天','Profile':'个人资料','Academy':'学院','Community':'社区','Messages':'消息','Welcome to the academy':'欢迎来到学院','Begin Your Culinary Journey':'开启您的烹饪之旅','Enter your details to sign in.':'请输入您的信息以登录。','First Name*':'名字*','Last Name*':'姓氏*','Phone Number*':'电话号码*','Login / Register →':'登录 / 注册 →','Continue with Google':'使用 Google 继续','Explore Recipes →':'探索食谱 →','Signature Recipe Collection':'精选食谱集','Community Feed':'社区动态','Publish Post':'发布帖子','Share Clip':'分享短视频','Clips Feed':'短视频动态','Open Camera':'打开相机','AI Kitchen Concierge':'AI 厨房助手','Edit Profile':'编辑资料','Logout':'退出登录','Search friends or groups...':'搜索好友或群组...'},
+ ja:{'Language':'言語','Home':'ホーム','Recipes':'レシピ','Feed':'フィード','Clips':'クリップ','Chat':'チャット','Profile':'プロフィール','Academy':'アカデミー','Community':'コミュニティ','Messages':'メッセージ','Welcome to the academy':'アカデミーへようこそ','Begin Your Culinary Journey':'料理の旅を始めましょう','Enter your details to sign in.':'ログイン情報を入力してください。','First Name*':'名*','Last Name*':'姓*','Phone Number*':'電話番号*','Login / Register →':'ログイン / 登録 →','Continue with Google':'Google で続行','Explore Recipes →':'レシピを見る →','Signature Recipe Collection':'おすすめレシピ集','Community Feed':'コミュニティフィード','Publish Post':'投稿する','Share Clip':'クリップを共有','Clips Feed':'クリップフィード','Open Camera':'カメラを開く','AI Kitchen Concierge':'AI キッチンアシスタント','Edit Profile':'プロフィールを編集','Logout':'ログアウト','Search friends or groups...':'友達やグループを検索...'},
+ ko:{'Language':'언어','Home':'홈','Recipes':'레시피','Feed':'피드','Clips':'클립','Chat':'채팅','Profile':'프로필','Academy':'아카데미','Community':'커뮤니티','Messages':'메시지','Welcome to the academy':'아카데미에 오신 것을 환영합니다','Begin Your Culinary Journey':'요리 여정을 시작하세요','Enter your details to sign in.':'로그인 정보를 입력하세요.','First Name*':'이름*','Last Name*':'성*','Phone Number*':'전화번호*','Login / Register →':'로그인 / 가입 →','Continue with Google':'Google로 계속하기','Explore Recipes →':'레시피 둘러보기 →','Signature Recipe Collection':'시그니처 레시피 모음','Community Feed':'커뮤니티 피드','Publish Post':'게시물 게시','Share Clip':'클립 공유','Clips Feed':'클립 피드','Open Camera':'카메라 열기','AI Kitchen Concierge':'AI 주방 도우미','Edit Profile':'프로필 수정','Logout':'로그아웃','Search friends or groups...':'친구 또는 그룹 검색...'},
+ id:{'Language':'Bahasa','Home':'Beranda','Recipes':'Resep','Feed':'Feed','Clips':'Klip','Chat':'Obrolan','Profile':'Profil','Academy':'Akademi','Community':'Komunitas','Messages':'Pesan','Welcome to the academy':'Selamat datang di akademi','Begin Your Culinary Journey':'Mulai perjalanan kuliner Anda','Enter your details to sign in.':'Masukkan detail Anda untuk masuk.','First Name*':'Nama depan*','Last Name*':'Nama belakang*','Phone Number*':'Nomor telepon*','Login / Register →':'Masuk / Daftar →','Continue with Google':'Lanjutkan dengan Google','Explore Recipes →':'Jelajahi resep →','Signature Recipe Collection':'Koleksi resep pilihan','Community Feed':'Feed komunitas','Publish Post':'Terbitkan postingan','Share Clip':'Bagikan klip','Clips Feed':'Feed klip','Open Camera':'Buka kamera','AI Kitchen Concierge':'Asisten dapur AI','Edit Profile':'Edit profil','Logout':'Keluar','Search friends or groups...':'Cari teman atau grup...'},
+ ru:{'Language':'Язык','Home':'Главная','Recipes':'Рецепты','Feed':'Лента','Clips':'Клипы','Chat':'Чат','Profile':'Профиль','Academy':'Академия','Community':'Сообщество','Messages':'Сообщения','Welcome to the academy':'Добро пожаловать в академию','Begin Your Culinary Journey':'Начните своё кулинарное путешествие','Enter your details to sign in.':'Введите данные для входа.','First Name*':'Имя*','Last Name*':'Фамилия*','Phone Number*':'Номер телефона*','Login / Register →':'Войти / Зарегистрироваться →','Continue with Google':'Продолжить с Google','Explore Recipes →':'Посмотреть рецепты →','Signature Recipe Collection':'Коллекция фирменных рецептов','Community Feed':'Лента сообщества','Publish Post':'Опубликовать','Share Clip':'Поделиться клипом','Clips Feed':'Лента клипов','Open Camera':'Открыть камеру','AI Kitchen Concierge':'Кулинарный ИИ-помощник','Edit Profile':'Редактировать профиль','Logout':'Выйти','Search friends or groups...':'Поиск друзей или групп...'}
+};
+function applyAppLanguage(lang){
+ const dict=APP_I18N[lang]||APP_I18N.en;
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ let node;while((node=walker.nextNode())){if(node.__bcaOriginalText===undefined)node.__bcaOriginalText=node.nodeValue;const raw=node.__bcaOriginalText,trim=raw.trim();if(!trim)continue;let translated=dict[trim];node.nodeValue=translated?raw.replace(trim,translated):raw;}
+ document.querySelectorAll('[placeholder]').forEach(el=>{if(!el.dataset.originalPlaceholder)el.dataset.originalPlaceholder=el.placeholder;const original=el.dataset.originalPlaceholder;el.placeholder=dict[original]||original;});
+ document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';try{localStorage.setItem('bcaLanguage',lang)}catch(e){}
+}
+window.addEventListener('DOMContentLoaded',()=>{const sel=document.getElementById('languageSelect');if(sel){let saved='en';try{saved=localStorage.getItem('bcaLanguage')||'en'}catch(e){}sel.value=saved;applyAppLanguage(saved);}});
+
+</script>
+<script>/* Recipe catalogue and learning panels are local front-end features. */</script>
+
+<div id="aiMiniPanel" class="ai-mini-panel"><h3>✦ AI Kitchen Helper</h3><div id="aiMiniLog" class="ai-mini-log"><p><b>AI:</b> Hello! Ask me any cooking-related question.</p></div><div class="ai-mini-controls"><input id="aiMiniInput" type="text" placeholder="Ask a cooking question..." onkeydown="if(event.key==='Enter')sendMiniAI()"><button onclick="sendMiniAI()">Send</button></div></div>
+<button id="aiFab" class="ai-fab" aria-label="Move AI assistant" title="Drag to move · Tap to chat">AI</button>
+<script>
+// Social UI demo: data is saved only in this browser/device. A backend is needed for real multi-user sync.
+const socialPeople=[
+ {name:'Chef Alex',handle:'@chef_alex',avatar:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120',bio:'Home chef · Italian food'},
+ {name:'Chef Priya',handle:'@priya_cooks',avatar:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120',bio:'Baking & desserts'},
+ {name:'Arun Kumar',handle:'@arun_k',avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120',bio:'Culinary student'},
+ {name:'Meena S',handle:'@meena_foodie',avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120',bio:'Food photography'},
+ {name:'Rahul Chef',handle:'@rahulchef',avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120',bio:'South Indian cuisine'}
+];
+let activeSocialChat='';
+function socialLoad(key, fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}}
+function socialSave(key,val){try{localStorage.setItem(key,JSON.stringify(val))}catch(e){alert('Browser storage is full. Delete some older uploads and try again.')}}
+function socialThreads(){return socialLoad('bcaThreads',{})}
+function renderFollowingList(){} // replaces the old demo list renderer
+function renderSocialDirectory(){
+ const q=(document.getElementById('friendSearch')?.value||'').toLowerCase();
+ const host=document.getElementById('friendResults');if(!host)return;host.innerHTML='';
+ const people=socialPeople.filter(p=>(p.name+' '+p.handle+' '+p.bio).toLowerCase().includes(q));
+ people.forEach(p=>{const row=document.createElement('button');row.className='friend-row';row.innerHTML=`<img class="social-avatar" src="${p.avatar}" alt=""><span class="friend-meta"><b>${p.name}</b><small>${p.handle} · ${p.bio}</small></span><span class="mini-follow">Message</span>`;row.onclick=()=>openChat(p.name);host.appendChild(row)});
+ if(!people.length)host.innerHTML='<div class="empty-social">No matching friends found.</div>';
+ const threads=socialThreads(),list=document.getElementById('chatThreads');list.innerHTML='';
+ Object.keys(threads).forEach(id=>{const t=threads[id];const row=document.createElement('button');row.className='thread-row';row.innerHTML=`<span class="social-avatar" style="display:grid;place-items:center;background:#322a1b">${t.group?'👥':'✉'}</span><span class="thread-meta"><b>${t.title}</b><small>${(t.messages||[]).slice(-1)[0]?.text||'Start a conversation'}</small></span><span class="thread-time">›</span>`;row.onclick=()=>openChat(id,t.title,true);list.appendChild(row)});
+}
+function ensureThread(id,title,group=false){const all=socialThreads();if(!all[id])all[id]={title,group,messages:[]};socialSave('bcaThreads',all);return all[id]}
+function openChat(name,titleOverride,isId=false){const id=isId?name:name.toLowerCase().replace(/[^a-z0-9]+/g,'_');const title=titleOverride||name;ensureThread(id,title,false);activeSocialChat=id;document.getElementById('chatListView').style.display='none';document.getElementById('activeChatView').style.display='block';document.getElementById('chatWithTitle').textContent=title;document.getElementById('chatSubtitle').textContent='Best Chef Community';renderSocialMessages();}
+function createCommunityGroup(){const name=prompt('Enter a group name:');if(!name||!name.trim())return;const id='group_'+Date.now();const all=socialThreads();all[id]={title:name.trim(),group:true,members:[currentUser||'You'],messages:[]};socialSave('bcaThreads',all);openChat(id,name.trim(),true);renderSocialDirectory()}
+function openGroupChat(){createCommunityGroup()}
+function renderSocialMessages(){const box=document.getElementById('dmChatBox');if(!box)return;box.innerHTML='';const thread=socialThreads()[activeSocialChat];(thread?.messages||[]).forEach(m=>{const el=document.createElement('div');el.className='message-bubble'+(m.mine?' mine':'');el.textContent=m.text;const tm=document.createElement('small');tm.textContent=m.mine?'You · '+m.time:m.sender+' · '+m.time;el.appendChild(tm);box.appendChild(el)});if(!thread?.messages?.length){const empty=document.createElement('div');empty.className='empty-social';empty.textContent='Say hello and start chatting!';box.appendChild(empty)}box.scrollTop=box.scrollHeight}
+function sendDMMessage(){const input=document.getElementById('dmUserInput'),text=input.value.trim();if(!text||!activeSocialChat)return;const all=socialThreads(),thread=all[activeSocialChat];thread.messages.push({text,mine:true,sender:currentUser||'You',time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})});socialSave('bcaThreads',all);input.value='';renderSocialMessages();renderSocialDirectory()}
+function backToChatList(){document.getElementById('activeChatView').style.display='none';document.getElementById('chatListView').style.display='block';renderSocialDirectory()}
+function editMyProfile(){const old=document.getElementById('profileName').textContent;const name=prompt('Profile name:',old);if(name&&name.trim()){document.getElementById('profileName').textContent=name.trim();try{localStorage.setItem('chefUserName',name.trim())}catch(e){}}const bio=prompt('Write a short bio:',document.getElementById('profileBio').textContent);if(bio!==null)document.getElementById('profileBio').textContent=bio;}
+function updateProfilePic(e){const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=ev=>document.getElementById('profileImagePreview').src=ev.target.result;r.readAsDataURL(f)}
+function openSocialDB(){
+ return new Promise((resolve,reject)=>{
+  if(!('indexedDB' in window)){reject(new Error('IndexedDB is not available'));return;}
+  const req=indexedDB.open('bcaSocialMedia',1);
+  req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('media'))req.result.createObjectStore('media')};
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+ });
+}
+async function saveSocialMedia(key,file){
+ const db=await openSocialDB();
+ return new Promise((resolve,reject)=>{const tx=db.transaction('media','readwrite');tx.objectStore('media').put(file,key);tx.oncomplete=()=>resolve(key);tx.onerror=()=>reject(tx.error)});
+}
+async function loadSocialMedia(key){
+ if(!key)return null;const db=await openSocialDB();
+ return new Promise((resolve,reject)=>{const tx=db.transaction('media','readonly');const req=tx.objectStore('media').get(key);req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error)});
+}
+function getSocialItems(key){return socialLoad(key,[])}
+function setSocialItems(key,value){socialSave(key,value)}
+function socialAuthor(){return currentUser||'Chef'}
+function socialTime(){return new Date().toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}
+function updatePostCount(){const count=getSocialItems('bcaPosts').filter(p=>p.author===socialAuthor()).length;const el=document.getElementById('postCount');if(el)el.textContent=String(count)}
+function createMediaElement(blob,type){
+ const url=URL.createObjectURL(blob);
+ if(type&&type.startsWith('video/')){const v=document.createElement('video');v.src=url;v.controls=true;v.playsInline=true;v.muted=false;v.defaultMuted=false;v.volume=1;v.preload='metadata';v.className='community-media';return v;}
+ const img=document.createElement('img');img.src=url;img.alt='Community post';img.className='community-media';return img;
+}
+async function createCommunityPost(){
+ const caption=document.getElementById('postCaptionInput').value.trim();
+ const file=document.getElementById('postMediaInput').files[0];
+ if(!caption&&!file){alert('Add a caption or a photo/video.');return;}
+ const id='post_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+ let mediaKey='';
+ try{if(file){mediaKey=id;await saveSocialMedia(mediaKey,file)}}catch(e){alert('Could not save the media. Please try again.');return;}
+ const posts=getSocialItems('bcaPosts');
+ posts.unshift({id,author:socialAuthor(),caption,mediaKey,mediaType:file?.type||'',likes:[],created:socialTime()});
+ setSocialItems('bcaPosts',posts);
+ document.getElementById('postCaptionInput').value='';document.getElementById('postMediaInput').value='';
+ renderCommunityFeed();updatePostCount();
+}
+function previewClipMedia(){
+ const file=document.getElementById('reelMediaInput').files?.[0],host=document.getElementById('clipMediaPreview');if(!host)return;host.innerHTML='';
+ if(!file){host.style.display='none';return;}host.style.display='block';const url=URL.createObjectURL(file);
+ const el=file.type.startsWith('video/')?document.createElement('video'):document.createElement('img');el.src=url;el.controls=file.type.startsWith('video/');el.playsInline=true;el.style.cssText='width:100%;max-height:260px;object-fit:contain;border-radius:12px;background:#080808';host.append(el);
+}
+function previewClipMusic(){
+ const file=document.getElementById('reelMusicInput').files?.[0],host=document.getElementById('clipMusicPreview');if(!host)return;host.innerHTML='';
+ if(!file){host.style.display='none';return;}host.style.display='block';const label=document.createElement('small');label.textContent='Selected music: '+file.name;label.style.color='#f4dfad';const audio=document.createElement('audio');audio.controls=true;audio.src=URL.createObjectURL(file);audio.style.cssText='display:block;width:100%;margin-top:6px';host.append(label,audio);
+}
+async function publishReel(file,caption,musicFile,musicLanguage){
+ if(!file){alert('Please select a photo or video first.');return;}
+ if(!file.type.startsWith('image/')&&!file.type.startsWith('video/')){alert('Please select an image or video.');return;}
+ if(musicFile&&!musicFile.type.startsWith('audio/')){alert('Please select an audio file for music.');return;}
+ const id='reel_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+ try{await saveSocialMedia(id,file);if(musicFile)await saveSocialMedia(id+'_music',musicFile)}catch(e){alert('Could not save the media. Please try again.');return;}
+ const reels=getSocialItems('bcaClips');
+ reels.unshift({id,author:socialAuthor(),caption:caption||'',mediaKey:id,mediaType:file.type||'',musicKey:musicFile?id+'_music':'',musicName:musicFile?.name||'',musicLanguage:musicLanguage||'',likes:[],created:socialTime()});
+ setSocialItems('bcaClips',reels);renderReelFeed();renderMyReelGrid();
+}
+async function publishReelFromStudio(){
+ const input=document.getElementById('reelMediaInput'),caption=document.getElementById('reelCaptionInput'),music=document.getElementById('reelMusicInput'),language=document.getElementById('clipMusicLanguage');
+ await publishReel(input.files[0],caption.value.trim(),music.files[0],language.value);
+ input.value='';caption.value='';music.value='';document.getElementById('clipMediaPreview').style.display='none';document.getElementById('clipMediaPreview').innerHTML='';document.getElementById('clipMusicPreview').style.display='none';document.getElementById('clipMusicPreview').innerHTML='';
+}
+async function uploadReel(e){
+ const file=e.target.files?.[0];if(!file)return;
+ await publishReel(file,'My cooking clip',null,'');e.target.value='';
+}
+function toggleSocialLike(kind,id){
+ const key=kind==='reel'?'bcaClips':'bcaPosts',items=getSocialItems(key),item=items.find(x=>x.id===id);if(!item)return;
+ const who=socialAuthor();item.likes=item.likes||[];const idx=item.likes.indexOf(who);if(idx>=0)item.likes.splice(idx,1);else item.likes.push(who);
+ setSocialItems(key,items);kind==='reel'?(renderReelFeed(),renderMyReelGrid()):renderCommunityFeed();
+}
+async function renderCommunityFeed(){
+ const host=document.getElementById('communityFeedList');if(!host)return;
+ const posts=getSocialItems('bcaPosts');host.innerHTML='';
+ if(!posts.length){host.innerHTML='<div class="community-empty">No posts yet. Share your first cooking post!</div>';updatePostCount();return;}
+ for(const p of posts){
+  const card=document.createElement('article');card.className='community-post';
+  const head=document.createElement('div');head.className='community-post-head';
+  const avatar=document.createElement('div');avatar.className='social-avatar';avatar.style.cssText='display:grid;place-items:center;background:#3a3020;color:#f4dfad;font-weight:800';avatar.textContent=(p.author||'C').slice(0,1).toUpperCase();
+  const meta=document.createElement('div');const name=document.createElement('b');name.textContent=p.author||'Chef';const time=document.createElement('small');time.textContent=p.created||'';meta.append(name,time);head.append(avatar,meta);card.append(head);
+  if(p.caption){const cap=document.createElement('p');cap.className='community-post-caption';cap.textContent=p.caption;card.append(cap)}
+  if(p.mediaKey){try{const blob=await loadSocialMedia(p.mediaKey);if(blob)card.append(createMediaElement(blob,p.mediaType))}catch(e){}}
+  const actions=document.createElement('div');actions.className='community-actions';const like=document.createElement('button');like.className='like-button'+((p.likes||[]).includes(socialAuthor())?' liked':'');like.textContent=((p.likes||[]).includes(socialAuthor())?'♥':'♡')+' Like · '+(p.likes||[]).length;like.onclick=()=>toggleSocialLike('post',p.id);actions.append(like);card.append(actions);host.append(card);
+ }
+ updatePostCount();
+}
+async function renderMyReelGrid(){
+ const host=document.getElementById('myReelGrid');if(!host)return;host.innerHTML='';
+ const mine=getSocialItems('bcaClips').filter(r=>r.author===socialAuthor());
+ if(!mine.length){host.innerHTML='<div class="empty-social">Your uploaded reels will appear here.</div>';return;}
+ for(const r of mine){try{const blob=await loadSocialMedia(r.mediaKey);if(blob){const el=createMediaElement(blob,r.mediaType||'video/mp4');host.append(el);if(r.musicKey){const track=await loadSocialMedia(r.musicKey);if(track){const a=document.createElement('audio');a.controls=true;a.src=URL.createObjectURL(track);a.style.cssText='width:100%;margin:6px 0 14px';host.append(a)}}}}catch(e){}}
+}
+async function renderReelFeed(){
+ const host=document.getElementById('reelFeedList');if(!host)return;
+ const reels=getSocialItems('bcaClips');host.innerHTML='';
+ if(!reels.length){host.innerHTML='<div class="community-empty" style="grid-column:1/-1">No clips yet. Upload your first cooking clip!</div>';return;}
+ for(const r of reels){
+  const card=document.createElement('article');card.className='reel-card';
+  const who=document.createElement('b');who.textContent=r.author||'Chef';who.style.cssText='font-size:12px;color:#f4dfad;display:block;margin:3px 2px 8px';card.append(who);
+  try{const blob=await loadSocialMedia(r.mediaKey);if(blob)card.append(createMediaElement(blob,r.mediaType||'video/mp4'))}catch(e){}
+  if(r.musicKey){try{const track=await loadSocialMedia(r.musicKey);if(track){const musicLabel=document.createElement('small');musicLabel.textContent='♫ '+(r.musicLanguage?r.musicLanguage+' · ':'')+(r.musicName||'Added music');musicLabel.style.cssText='display:block;color:#f4dfad;margin:8px 2px 4px';const audio=document.createElement('audio');audio.controls=true;audio.src=URL.createObjectURL(track);audio.style.cssText='width:100%;margin-bottom:8px';card.append(musicLabel,audio)}}catch(e){}}
+  if(r.caption){const cap=document.createElement('p');cap.className='community-post-caption';cap.textContent=r.caption;card.append(cap)}
+  const time=document.createElement('small');time.textContent=r.created||'';time.style.cssText='color:#9ba49e;font-size:9px';card.append(time);
+  const like=document.createElement('button');like.className='like-button'+((r.likes||[]).includes(socialAuthor())?' liked':'');like.style.marginTop='9px';like.textContent=((r.likes||[]).includes(socialAuthor())?'♥':'♡')+' Like · '+(r.likes||[]).length;like.onclick=()=>toggleSocialLike('reel',r.id);card.append(like);host.append(card);
+ }
+}
+function addMediaCard(containerId,file,isVideo){
+ const host=document.getElementById(containerId);if(!host)return;
+ const url=URL.createObjectURL(file);
+ if(containerId==='myStoryStrip'){
+  const el=isVideo?document.createElement('video'):document.createElement('img');el.className='story-thumb';el.src=url;
+  if(isVideo){el.muted=true;el.playsInline=true}host.querySelector('.empty-social')?.remove();host.prepend(el);
+ }
+}
+function uploadStory(e){const f=e.target.files?.[0];if(f){addMediaCard('myStoryStrip',f,f.type.startsWith('video/'));e.target.value=''}}
+function changeWallpaper(e){const f=e.target.files?.[0];if(f){const r=new FileReader();r.onload=x=>document.body.style.backgroundImage=`linear-gradient(#090909d9,#090909e8),url('${x.target.result}')`;r.readAsDataURL(f)}}
+function sendMiniAI(){const input=document.getElementById('aiMiniInput'),q=input.value.trim();if(!q)return;const log=document.getElementById('aiMiniLog');const user=document.createElement('p');user.textContent='You: '+q;log.appendChild(user);input.value='';const answer=document.createElement('p');answer.textContent='AI demo: I understand your question. This is a demo response. A secure backend and an AI API are required for real AI answers.';log.appendChild(answer);log.scrollTop=log.scrollHeight}
+function setupDraggableAI(){const fab=document.getElementById('aiFab'),panel=document.getElementById('aiMiniPanel');let dragging=false,moved=false,sx=0,sy=0,left=0,top=0;fab.addEventListener('pointerdown',e=>{dragging=true;moved=false;sx=e.clientX;sy=e.clientY;const r=fab.getBoundingClientRect();left=r.left;top=r.top;fab.setPointerCapture(e.pointerId)});fab.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>5)moved=true;if(moved){fab.style.left=Math.max(4,Math.min(innerWidth-fab.offsetWidth-4,left+dx))+'px';fab.style.top=Math.max(4,Math.min(innerHeight-fab.offsetHeight-4,top+dy))+'px';fab.style.right='auto';fab.style.bottom='auto'}});fab.addEventListener('pointerup',()=>{dragging=false;if(!moved)panel.style.display=panel.style.display==='block'?'none':'block'});}
+const oldShowApp=window.showApp;window.showApp=function(){if(oldShowApp)oldShowApp();const fab=document.getElementById('aiFab');if(fab)fab.style.display='block';renderSocialDirectory();renderCommunityFeed();renderReelFeed();renderMyReelGrid();};
+window.addEventListener('DOMContentLoaded',()=>{renderSocialDirectory();renderCommunityFeed();renderReelFeed();renderMyReelGrid();setupDraggableAI();const fab=document.getElementById('aiFab');if(fab&&document.getElementById('mainApp').style.display!=='none')fab.style.display='block';});
+
+/* App language selector: translates the core navigation and common controls. */
+const APP_I18N={
+ en:{'Language':'Language','Home':'Home','Recipes':'Recipes','Feed':'Feed','Clips':'Clips','Chat':'Chat','Profile':'Profile','Academy':'Academy','Community':'Community','Messages':'Messages','Welcome to the academy':'Welcome to the academy','Begin Your Culinary Journey':'Begin Your Culinary Journey','Enter your details to sign in.':'Enter your details to sign in.','First Name*':'First Name*','Last Name*':'Last Name*','Phone Number*':'Phone Number*','Login / Register →':'Login / Register →','Continue with Google':'Continue with Google','Explore Recipes →':'Explore Recipes →','Signature Recipe Collection':'Signature Recipe Collection','Community Feed':'Community Feed','Publish Post':'Publish Post','Share Clip':'Share Clip','Clips Feed':'Clips Feed','Open Camera':'Open Camera','AI Kitchen Concierge':'AI Kitchen Concierge','Edit Profile':'Edit Profile','Logout':'Logout','Search friends or groups...':'Search friends or groups...'},
+ ta:{'Language':'மொழி','Home':'முகப்பு','Recipes':'சமையல் குறிப்புகள்','Feed':'பதிவுகள்','Clips':'கிளிப்புகள்','Chat':'அரட்டை','Profile':'சுயவிவரம்','Academy':'அகாடமி','Community':'சமூகம்','Messages':'செய்திகள்','Welcome to the academy':'அகாடமிக்கு வரவேற்கிறோம்','Begin Your Culinary Journey':'உங்கள் சமையல் பயணத்தைத் தொடங்குங்கள்','Enter your details to sign in.':'உள்நுழைய உங்கள் விவரங்களை உள்ளிடுங்கள்.','First Name*':'முதல் பெயர்*','Last Name*':'கடைசி பெயர்*','Phone Number*':'தொலைபேசி எண்*','Login / Register →':'உள்நுழை / பதிவு செய் →','Continue with Google':'Google மூலம் தொடரவும்','Explore Recipes →':'சமையல் குறிப்புகளைப் பார்க்கவும் →','Signature Recipe Collection':'சிறப்பு சமையல் குறிப்புகள்','Community Feed':'சமூகப் பதிவுகள்','Publish Post':'பதிவிடு','Share Clip':'கிளிப்பைப் பகிர்','Clips Feed':'கிளிப்புகள்','Open Camera':'கேமராவைத் திற','AI Kitchen Concierge':'AI சமையல் உதவியாளர்','Edit Profile':'சுயவிவரத்தைத் திருத்து','Logout':'வெளியேறு','Search friends or groups...':'நண்பர்கள் அல்லது குழுக்களைத் தேடுங்கள்...'},
+ hi:{'Language':'भाषा','Home':'होम','Recipes':'रेसिपी','Feed':'फ़ीड','Clips':'क्लिप्स','Chat':'चैट','Profile':'प्रोफ़ाइल','Academy':'अकादमी','Community':'समुदाय','Messages':'संदेश','Welcome to the academy':'अकादमी में आपका स्वागत है','Begin Your Culinary Journey':'अपनी पाक यात्रा शुरू करें','Enter your details to sign in.':'साइन इन करने के लिए अपना विवरण दर्ज करें।','First Name*':'पहला नाम*','Last Name*':'उपनाम*','Phone Number*':'फ़ोन नंबर*','Login / Register →':'लॉगिन / रजिस्टर →','Continue with Google':'Google से जारी रखें','Explore Recipes →':'रेसिपी देखें →','Signature Recipe Collection':'विशेष रेसिपी संग्रह','Community Feed':'कम्युनिटी फ़ीड','Publish Post':'पोस्ट प्रकाशित करें','Share Clip':'क्लिप साझा करें','Clips Feed':'क्लिप फ़ीड','Open Camera':'कैमरा खोलें','AI Kitchen Concierge':'AI किचन सहायक','Edit Profile':'प्रोफ़ाइल संपादित करें','Logout':'लॉगआउट','Search friends or groups...':'दोस्तों या समूहों को खोजें...'},
+ es:{'Language':'Idioma','Home':'Inicio','Recipes':'Recetas','Feed':'Publicaciones','Clips':'Clips','Chat':'Chat','Profile':'Perfil','Academy':'Academia','Community':'Comunidad','Messages':'Mensajes','Welcome to the academy':'Bienvenido a la academia','Begin Your Culinary Journey':'Comienza tu viaje culinario','Enter your details to sign in.':'Introduce tus datos para iniciar sesión.','First Name*':'Nombre*','Last Name*':'Apellido*','Phone Number*':'Número de teléfono*','Login / Register →':'Iniciar sesión / Registrarse →','Continue with Google':'Continuar con Google','Explore Recipes →':'Explorar recetas →','Signature Recipe Collection':'Colección de recetas exclusivas','Community Feed':'Feed de la comunidad','Publish Post':'Publicar','Share Clip':'Compartir clip','Clips Feed':'Feed de clips','Open Camera':'Abrir cámara','AI Kitchen Concierge':'Asistente de cocina IA','Edit Profile':'Editar perfil','Logout':'Cerrar sesión','Search friends or groups...':'Buscar amigos o grupos...'},
+ fr:{'Language':'Langue','Home':'Accueil','Recipes':'Recettes','Feed':'Fil','Clips':'Clips','Chat':'Discussion','Profile':'Profil','Academy':'Académie','Community':'Communauté','Messages':'Messages','Welcome to the academy':'Bienvenue à l’académie','Begin Your Culinary Journey':'Commencez votre parcours culinaire','Enter your details to sign in.':'Saisissez vos informations pour vous connecter.','First Name*':'Prénom*','Last Name*':'Nom*','Phone Number*':'Numéro de téléphone*','Login / Register →':'Connexion / Inscription →','Continue with Google':'Continuer avec Google','Explore Recipes →':'Découvrir les recettes →','Signature Recipe Collection':'Collection de recettes signature','Community Feed':'Fil de la communauté','Publish Post':'Publier','Share Clip':'Partager un clip','Clips Feed':'Fil des clips','Open Camera':'Ouvrir la caméra','AI Kitchen Concierge':'Assistant culinaire IA','Edit Profile':'Modifier le profil','Logout':'Déconnexion','Search friends or groups...':'Rechercher des amis ou des groupes...'},
+ de:{'Language':'Sprache','Home':'Startseite','Recipes':'Rezepte','Feed':'Feed','Clips':'Clips','Chat':'Chat','Profile':'Profil','Academy':'Akademie','Community':'Community','Messages':'Nachrichten','Welcome to the academy':'Willkommen an der Akademie','Begin Your Culinary Journey':'Beginne deine kulinarische Reise','Enter your details to sign in.':'Gib deine Daten ein, um dich anzumelden.','First Name*':'Vorname*','Last Name*':'Nachname*','Phone Number*':'Telefonnummer*','Login / Register →':'Anmelden / Registrieren →','Continue with Google':'Mit Google fortfahren','Explore Recipes →':'Rezepte entdecken →','Signature Recipe Collection':'Ausgewählte Rezeptsammlung','Community Feed':'Community-Feed','Publish Post':'Beitrag veröffentlichen','Share Clip':'Clip teilen','Clips Feed':'Clip-Feed','Open Camera':'Kamera öffnen','AI Kitchen Concierge':'KI-Küchenassistent','Edit Profile':'Profil bearbeiten','Logout':'Abmelden','Search friends or groups...':'Freunde oder Gruppen suchen...'},
+ pt:{'Language':'Idioma','Home':'Início','Recipes':'Receitas','Feed':'Feed','Clips':'Clipes','Chat':'Chat','Profile':'Perfil','Academy':'Academia','Community':'Comunidade','Messages':'Mensagens','Welcome to the academy':'Bem-vindo à academia','Begin Your Culinary Journey':'Comece sua jornada culinária','Enter your details to sign in.':'Insira seus dados para entrar.','First Name*':'Nome*','Last Name*':'Sobrenome*','Phone Number*':'Número de telefone*','Login / Register →':'Entrar / Registrar →','Continue with Google':'Continuar com Google','Explore Recipes →':'Explorar receitas →','Signature Recipe Collection':'Coleção de receitas especiais','Community Feed':'Feed da comunidade','Publish Post':'Publicar postagem','Share Clip':'Compartilhar clipe','Clips Feed':'Feed de clipes','Open Camera':'Abrir câmera','AI Kitchen Concierge':'Assistente de cozinha com IA','Edit Profile':'Editar perfil','Logout':'Sair','Search friends or groups...':'Buscar amigos ou grupos...'},
+ bn:{'Language':'ভাষা','Home':'হোম','Recipes':'রেসিপি','Feed':'ফিড','Clips':'ক্লিপস','Chat':'চ্যাট','Profile':'প্রোফাইল','Academy':'একাডেমি','Community':'কমিউনিটি','Messages':'বার্তা','Welcome to the academy':'একাডেমিতে স্বাগতম','Begin Your Culinary Journey':'আপনার রান্নার যাত্রা শুরু করুন','Enter your details to sign in.':'সাইন ইন করতে আপনার তথ্য লিখুন।','First Name*':'নামের প্রথম অংশ*','Last Name*':'নামের শেষ অংশ*','Phone Number*':'ফোন নম্বর*','Login / Register →':'লগইন / নিবন্ধন →','Continue with Google':'Google দিয়ে চালিয়ে যান','Explore Recipes →':'রেসিপি দেখুন →','Signature Recipe Collection':'বিশেষ রেসিপি সংগ্রহ','Community Feed':'কমিউনিটি ফিড','Publish Post':'পোস্ট প্রকাশ করুন','Share Clip':'ক্লিপ শেয়ার করুন','Clips Feed':'ক্লিপ ফিড','Open Camera':'ক্যামেরা খুলুন','AI Kitchen Concierge':'AI রান্নার সহকারী','Edit Profile':'প্রোফাইল সম্পাদনা','Logout':'লগআউট','Search friends or groups...':'বন্ধু বা গ্রুপ খুঁজুন...'},
+ te:{'Language':'భాష','Home':'హోమ్','Recipes':'వంటకాలు','Feed':'ఫీడ్','Clips':'క్లిప్స్','Chat':'చాట్','Profile':'ప్రొఫైల్','Academy':'అకాడమీ','Community':'కమ్యూనిటీ','Messages':'సందేశాలు','Welcome to the academy':'అకాడమీకి స్వాగతం','Begin Your Culinary Journey':'మీ వంట ప్రయాణాన్ని ప్రారంభించండి','Enter your details to sign in.':'సైన్ ఇన్ చేయడానికి మీ వివరాలను నమోదు చేయండి.','First Name*':'మొదటి పేరు*','Last Name*':'చివరి పేరు*','Phone Number*':'ఫోన్ నంబర్*','Login / Register →':'లాగిన్ / నమోదు →','Continue with Google':'Googleతో కొనసాగించండి','Explore Recipes →':'వంటకాలను చూడండి →','Signature Recipe Collection':'ప్రత్యేక వంటకాల సేకరణ','Community Feed':'కమ్యూనిటీ ఫీడ్','Publish Post':'పోస్ట్ చేయండి','Share Clip':'క్లిప్‌ను షేర్ చేయండి','Clips Feed':'క్లిప్స్ ఫీడ్','Open Camera':'కెమెరా తెరవండి','AI Kitchen Concierge':'AI వంట సహాయకుడు','Edit Profile':'ప్రొఫైల్ సవరించండి','Logout':'లాగ్ అవుట్','Search friends or groups...':'స్నేహితులు లేదా గ్రూపులను వెతకండి...'},
+ ml:{'Language':'ഭാഷ','Home':'ഹോം','Recipes':'പാചകക്കുറിപ്പുകൾ','Feed':'ഫീഡ്','Clips':'ക്ലിപ്പുകൾ','Chat':'ചാറ്റ്','Profile':'പ്രൊഫൈൽ','Academy':'അക്കാദമി','Community':'കമ്മ്യൂണിറ്റി','Messages':'സന്ദേശങ്ങൾ','Welcome to the academy':'അക്കാദമിയിലേക്ക് സ്വാഗതം','Begin Your Culinary Journey':'നിങ്ങളുടെ പാചകയാത്ര ആരംഭിക്കുക','Enter your details to sign in.':'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങളുടെ വിവരങ്ങൾ നൽകുക.','First Name*':'പേര്*','Last Name*':'കുടുംബപ്പേര്*','Phone Number*':'ഫോൺ നമ്പർ*','Login / Register →':'ലോഗിൻ / രജിസ്റ്റർ →','Continue with Google':'Google ഉപയോഗിച്ച് തുടരുക','Explore Recipes →':'പാചകക്കുറിപ്പുകൾ കാണുക →','Signature Recipe Collection':'തിരഞ്ഞെടുത്ത പാചകക്കുറിപ്പുകൾ','Community Feed':'കമ്മ്യൂണിറ്റി ഫീഡ്','Publish Post':'പോസ്റ്റ് പ്രസിദ്ധീകരിക്കുക','Share Clip':'ക്ലിപ്പ് പങ്കിടുക','Clips Feed':'ക്ലിപ്പുകളുടെ ഫീഡ്','Open Camera':'ക്യാമറ തുറക്കുക','AI Kitchen Concierge':'AI പാചക സഹായി','Edit Profile':'പ്രൊഫൈൽ തിരുത്തുക','Logout':'ലോഗ് ഔട്ട്','Search friends or groups...':'സുഹൃത്തുക്കളെയോ ഗ്രൂപ്പുകളെയോ തിരയുക...'},
+ kn:{'Language':'ಭಾಷೆ','Home':'ಮುಖಪುಟ','Recipes':'ಪಾಕವಿಧಾನಗಳು','Feed':'ಫೀಡ್','Clips':'ಕ್ಲಿಪ್‌ಗಳು','Chat':'ಚಾಟ್','Profile':'ಪ್ರೊಫೈಲ್','Academy':'ಅಕಾಡೆಮಿ','Community':'ಸಮುದಾಯ','Messages':'ಸಂದೇಶಗಳು','Welcome to the academy':'ಅಕಾಡೆಮಿಗೆ ಸ್ವಾಗತ','Begin Your Culinary Journey':'ನಿಮ್ಮ ಪಾಕಯಾನವನ್ನು ಪ್ರಾರಂಭಿಸಿ','Enter your details to sign in.':'ಸೈನ್ ಇನ್ ಮಾಡಲು ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ.','First Name*':'ಮೊದಲ ಹೆಸರು*','Last Name*':'ಕೊನೆಯ ಹೆಸರು*','Phone Number*':'ಫೋನ್ ಸಂಖ್ಯೆ*','Login / Register →':'ಲಾಗಿನ್ / ನೋಂದಣಿ →','Continue with Google':'Google ಮೂಲಕ ಮುಂದುವರಿಸಿ','Explore Recipes →':'ಪಾಕವಿಧಾನಗಳನ್ನು ಅನ್ವೇಷಿಸಿ →','Signature Recipe Collection':'ವಿಶೇಷ ಪಾಕವಿಧಾನಗಳ ಸಂಗ್ರಹ','Community Feed':'ಸಮುದಾಯ ಫೀಡ್','Publish Post':'ಪೋಸ್ಟ್ ಪ್ರಕಟಿಸಿ','Share Clip':'ಕ್ಲಿಪ್ ಹಂಚಿಕೊಳ್ಳಿ','Clips Feed':'ಕ್ಲಿಪ್ ಫೀಡ್','Open Camera':'ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ','AI Kitchen Concierge':'AI ಅಡುಗೆ ಸಹಾಯಕ','Edit Profile':'ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ','Logout':'ಲಾಗ್ ಔಟ್','Search friends or groups...':'ಸ್ನೇಹಿತರು ಅಥವಾ ಗುಂಪುಗಳನ್ನು ಹುಡುಕಿ...'},
+ mr:{'Language':'भाषा','Home':'मुख्यपृष्ठ','Recipes':'पाककृती','Feed':'फीड','Clips':'क्लिप्स','Chat':'चॅट','Profile':'प्रोफाइल','Academy':'अकॅडमी','Community':'समुदाय','Messages':'संदेश','Welcome to the academy':'अकॅडमीमध्ये स्वागत आहे','Begin Your Culinary Journey':'तुमचा पाककलेचा प्रवास सुरू करा','Enter your details to sign in.':'साइन इन करण्यासाठी तुमची माहिती भरा.','First Name*':'पहिले नाव*','Last Name*':'आडनाव*','Phone Number*':'फोन नंबर*','Login / Register →':'लॉगिन / नोंदणी →','Continue with Google':'Google सह पुढे जा','Explore Recipes →':'पाककृती पाहा →','Signature Recipe Collection':'निवडक पाककृती संग्रह','Community Feed':'समुदाय फीड','Publish Post':'पोस्ट प्रकाशित करा','Share Clip':'क्लिप शेअर करा','Clips Feed':'क्लिप फीड','Open Camera':'कॅमेरा उघडा','AI Kitchen Concierge':'AI स्वयंपाक सहाय्यक','Edit Profile':'प्रोफाइल संपादित करा','Logout':'लॉगआउट','Search friends or groups...':'मित्र किंवा गट शोधा...'},
+ ar:{'Language':'اللغة','Home':'الرئيسية','Recipes':'الوصفات','Feed':'المنشورات','Clips':'مقاطع','Chat':'الدردشة','Profile':'الملف الشخصي','Academy':'الأكاديمية','Community':'المجتمع','Messages':'الرسائل','Welcome to the academy':'مرحبًا بك في الأكاديمية','Begin Your Culinary Journey':'ابدأ رحلتك في عالم الطهي','Enter your details to sign in.':'أدخل بياناتك لتسجيل الدخول.','First Name*':'الاسم الأول*','Last Name*':'اسم العائلة*','Phone Number*':'رقم الهاتف*','Login / Register →':'تسجيل الدخول / التسجيل →','Continue with Google':'المتابعة باستخدام Google','Explore Recipes →':'استكشف الوصفات →','Signature Recipe Collection':'مجموعة الوصفات المميزة','Community Feed':'منشورات المجتمع','Publish Post':'نشر المنشور','Share Clip':'مشاركة مقطع','Clips Feed':'خلاصة المقاطع','Open Camera':'افتح الكاميرا','AI Kitchen Concierge':'مساعد المطبخ بالذكاء الاصطناعي','Edit Profile':'تعديل الملف الشخصي','Logout':'تسجيل الخروج','Search friends or groups...':'ابحث عن الأصدقاء أو المجموعات...'},
+ zh:{'Language':'语言','Home':'首页','Recipes':'食谱','Feed':'动态','Clips':'短视频','Chat':'聊天','Profile':'个人资料','Academy':'学院','Community':'社区','Messages':'消息','Welcome to the academy':'欢迎来到学院','Begin Your Culinary Journey':'开启您的烹饪之旅','Enter your details to sign in.':'请输入您的信息以登录。','First Name*':'名字*','Last Name*':'姓氏*','Phone Number*':'电话号码*','Login / Register →':'登录 / 注册 →','Continue with Google':'使用 Google 继续','Explore Recipes →':'探索食谱 →','Signature Recipe Collection':'精选食谱集','Community Feed':'社区动态','Publish Post':'发布帖子','Share Clip':'分享短视频','Clips Feed':'短视频动态','Open Camera':'打开相机','AI Kitchen Concierge':'AI 厨房助手','Edit Profile':'编辑资料','Logout':'退出登录','Search friends or groups...':'搜索好友或群组...'},
+ ja:{'Language':'言語','Home':'ホーム','Recipes':'レシピ','Feed':'フィード','Clips':'クリップ','Chat':'チャット','Profile':'プロフィール','Academy':'アカデミー','Community':'コミュニティ','Messages':'メッセージ','Welcome to the academy':'アカデミーへようこそ','Begin Your Culinary Journey':'料理の旅を始めましょう','Enter your details to sign in.':'ログイン情報を入力してください。','First Name*':'名*','Last Name*':'姓*','Phone Number*':'電話番号*','Login / Register →':'ログイン / 登録 →','Continue with Google':'Google で続行','Explore Recipes →':'レシピを見る →','Signature Recipe Collection':'おすすめレシピ集','Community Feed':'コミュニティフィード','Publish Post':'投稿する','Share Clip':'クリップを共有','Clips Feed':'クリップフィード','Open Camera':'カメラを開く','AI Kitchen Concierge':'AI キッチンアシスタント','Edit Profile':'プロフィールを編集','Logout':'ログアウト','Search friends or groups...':'友達やグループを検索...'},
+ ko:{'Language':'언어','Home':'홈','Recipes':'레시피','Feed':'피드','Clips':'클립','Chat':'채팅','Profile':'프로필','Academy':'아카데미','Community':'커뮤니티','Messages':'메시지','Welcome to the academy':'아카데미에 오신 것을 환영합니다','Begin Your Culinary Journey':'요리 여정을 시작하세요','Enter your details to sign in.':'로그인 정보를 입력하세요.','First Name*':'이름*','Last Name*':'성*','Phone Number*':'전화번호*','Login / Register →':'로그인 / 가입 →','Continue with Google':'Google로 계속하기','Explore Recipes →':'레시피 둘러보기 →','Signature Recipe Collection':'시그니처 레시피 모음','Community Feed':'커뮤니티 피드','Publish Post':'게시물 게시','Share Clip':'클립 공유','Clips Feed':'클립 피드','Open Camera':'카메라 열기','AI Kitchen Concierge':'AI 주방 도우미','Edit Profile':'프로필 수정','Logout':'로그아웃','Search friends or groups...':'친구 또는 그룹 검색...'},
+ id:{'Language':'Bahasa','Home':'Beranda','Recipes':'Resep','Feed':'Feed','Clips':'Klip','Chat':'Obrolan','Profile':'Profil','Academy':'Akademi','Community':'Komunitas','Messages':'Pesan','Welcome to the academy':'Selamat datang di akademi','Begin Your Culinary Journey':'Mulai perjalanan kuliner Anda','Enter your details to sign in.':'Masukkan detail Anda untuk masuk.','First Name*':'Nama depan*','Last Name*':'Nama belakang*','Phone Number*':'Nomor telepon*','Login / Register →':'Masuk / Daftar →','Continue with Google':'Lanjutkan dengan Google','Explore Recipes →':'Jelajahi resep →','Signature Recipe Collection':'Koleksi resep pilihan','Community Feed':'Feed komunitas','Publish Post':'Terbitkan postingan','Share Clip':'Bagikan klip','Clips Feed':'Feed klip','Open Camera':'Buka kamera','AI Kitchen Concierge':'Asisten dapur AI','Edit Profile':'Edit profil','Logout':'Keluar','Search friends or groups...':'Cari teman atau grup...'},
+ ru:{'Language':'Язык','Home':'Главная','Recipes':'Рецепты','Feed':'Лента','Clips':'Клипы','Chat':'Чат','Profile':'Профиль','Academy':'Академия','Community':'Сообщество','Messages':'Сообщения','Welcome to the academy':'Добро пожаловать в академию','Begin Your Culinary Journey':'Начните своё кулинарное путешествие','Enter your details to sign in.':'Введите данные для входа.','First Name*':'Имя*','Last Name*':'Фамилия*','Phone Number*':'Номер телефона*','Login / Register →':'Войти / Зарегистрироваться →','Continue with Google':'Продолжить с Google','Explore Recipes →':'Посмотреть рецепты →','Signature Recipe Collection':'Коллекция фирменных рецептов','Community Feed':'Лента сообщества','Publish Post':'Опубликовать','Share Clip':'Поделиться клипом','Clips Feed':'Лента клипов','Open Camera':'Открыть камеру','AI Kitchen Concierge':'Кулинарный ИИ-помощник','Edit Profile':'Редактировать профиль','Logout':'Выйти','Search friends or groups...':'Поиск друзей или групп...'}
+};
+function applyAppLanguage(lang){
+ const dict=APP_I18N[lang]||APP_I18N.en;
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ let node;while((node=walker.nextNode())){if(node.__bcaOriginalText===undefined)node.__bcaOriginalText=node.nodeValue;const raw=node.__bcaOriginalText,trim=raw.trim();if(!trim)continue;let translated=dict[trim];node.nodeValue=translated?raw.replace(trim,translated):raw;}
+ document.querySelectorAll('[placeholder]').forEach(el=>{if(!el.dataset.originalPlaceholder)el.dataset.originalPlaceholder=el.placeholder;const original=el.dataset.originalPlaceholder;el.placeholder=dict[original]||original;});
+ document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';try{localStorage.setItem('bcaLanguage',lang)}catch(e){}
+}
+window.addEventListener('DOMContentLoaded',()=>{const sel=document.getElementById('languageSelect');if(sel){let saved='en';try{saved=localStorage.getItem('bcaLanguage')||'en'}catch(e){}sel.value=saved;applyAppLanguage(saved);}});
+
+</script>
+
+
+</body></html>
